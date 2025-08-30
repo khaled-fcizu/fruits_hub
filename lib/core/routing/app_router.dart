@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fruit_hub/core/routes/routes.dart';
+import 'package:fruit_hub/core/routing/routes.dart';
+import 'package:fruit_hub/features/onBoarding/ui/onboarding_view.dart';
 import 'package:fruit_hub/features/spalsh/ui/splash_view.dart';
 
 abstract class AppRouter {
@@ -7,6 +8,8 @@ abstract class AppRouter {
     switch (settings.name) {
       case Routes.splashView:
         return MaterialPageRoute(builder: (_) => SplashView());
+      case Routes.onBoardingView:
+        return MaterialPageRoute(builder: (_) => OnBoardingView());
       default:
         return null;
     }
