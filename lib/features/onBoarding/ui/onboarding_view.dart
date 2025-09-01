@@ -40,7 +40,6 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         child: Column(
           children: [
             Expanded(child: OnBoardingPageView(
-              currentPage: currentPage,
               pageController: pageController)),
             DotsIndicator(
               dotsCount: 2,
