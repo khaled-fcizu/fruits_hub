@@ -7,11 +7,13 @@ import 'package:fruit_hub/core/theming/app_text_styles.dart';
 class OnBoardingPageViewItem extends StatelessWidget {
   const OnBoardingPageViewItem({
     super.key,
+    required this.isVisible,
     required this.backgroungImage,
     required this.image,
     required this.subTitile,
     required this.title,
   });
+  final bool isVisible;
   final String image, backgroungImage;
   final String subTitile;
   final Widget title;
@@ -30,6 +32,13 @@ class OnBoardingPageViewItem extends StatelessWidget {
               left: 0,
               right: 0,
               child: SvgPicture.asset(image),
+            ),
+            Visibility(
+              visible: isVisible,
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Text('تخط', style: AppTextStyles.font13GrayRegular,),
+              ),
             ),
           ],
         ),

@@ -3,13 +3,16 @@ import 'package:fruit_hub/core/theming/app_text_styles.dart';
 import 'package:fruit_hub/features/onBoarding/ui/widgets/onboarding_page_view_item.dart';
 
 class OnBoardingPageView extends StatelessWidget {
-  const OnBoardingPageView({super.key});
-
+  const OnBoardingPageView({super.key, required this.pageController, required this.currentPage});
+  final PageController pageController;
+  final int currentPage;
   @override
   Widget build(BuildContext context) {
     return PageView(
+      controller: pageController,
       children: [
         OnBoardingPageViewItem(
+          isVisible: currentPage == 0 ? true : false,
           backgroungImage: 'assets/svgs/onboarding_bacground_item1.svg',
           image: 'assets/svgs/onboarding_fruit_item1.svg',
           subTitile:
@@ -34,6 +37,8 @@ class OnBoardingPageView extends StatelessWidget {
           ),
         ),
         OnBoardingPageViewItem(
+          isVisible: false,
+
           backgroungImage: 'assets/svgs/onboarding_bacground_item2.svg',
           image: 'assets/svgs/onboarding_fruit_item2.svg',
           subTitile:
