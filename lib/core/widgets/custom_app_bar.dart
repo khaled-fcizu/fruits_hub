@@ -9,7 +9,7 @@ AppBar buildAppBar(context, {required String title, required Widget icon}) {
     title: Text(title, style: AppTextStyles.font19BlackBold),
     leading: GestureDetector(
       onTap: () {
-        context.pop();
+        Navigator.of(context).pop();
       },
       child: icon,
     ),

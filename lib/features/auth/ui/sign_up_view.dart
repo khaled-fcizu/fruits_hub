@@ -8,15 +8,9 @@ import 'package:fruit_hub/core/widgets/custom_app_bar.dart';
 import 'package:fruit_hub/features/auth/ui/widgets/already_have_account.dart';
 import 'package:fruit_hub/features/auth/ui/widgets/condations_and_terms_chick.dart';
 
-class SignUpView extends StatefulWidget {
+class SignUpView extends StatelessWidget {
   const SignUpView({super.key});
 
-  @override
-  State<SignUpView> createState() => _SignUpViewState();
-}
-
-class _SignUpViewState extends State<SignUpView> {
-  bool isConfermed = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +18,7 @@ class _SignUpViewState extends State<SignUpView> {
                   context,
                   title: 'حساب جديد',
                   icon: Icon(Icons.arrow_back_ios),
-                ),
+              ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsetsGeometry.symmetric(horizontal: 16.w),
@@ -49,18 +43,7 @@ class _SignUpViewState extends State<SignUpView> {
                   ),
                 ),
                 verticalSpace(16),
-                CondationsAndTermsChick(
-                  confermeIcon: GestureDetector(
-                    onTap: () {
-                     setState(() {
-                        isConfermed = !isConfermed;
-                     });
-                    },
-                    child: isConfermed
-                        ? Icon(Icons.check_box, color: AppColors.mainLightGreen)
-                        : Icon(Icons.check_box_outline_blank),
-                  ),
-                ),
+                CondationsAndTermsChick(),
                 verticalSpace(30),
                 AppButton(onPressed: () {}, buttonText: 'إنشاء حساب جديد'),
                 verticalSpace(26),
