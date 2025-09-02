@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruit_hub/core/helpers/extentions.dart';
 import 'package:fruit_hub/core/routing/routes.dart';
+import 'package:fruit_hub/core/utils/constants.dart';
+import 'package:fruit_hub/core/utils/shared_prefrance_sigleton.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -13,10 +15,18 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 3), () {
-      context.pushReplacementNamed(Routes.onBoardingView);
-    });
+    excuteNavigation();
     super.initState();
+  }
+
+  void excuteNavigation() {
+    Future.delayed(Duration(seconds: 3), () {
+      if(SharedPrefranceSigleton.getBool(key: isOnBoardingViewSeen)){
+        context.pushReplacementNamed(Routes.loginView);
+      }else{
+        context.pushReplacementNamed(Routes.onBoardingView);
+      }
+    });
   }
 
   @override
