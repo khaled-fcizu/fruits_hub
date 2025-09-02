@@ -1,7 +1,3 @@
-
-
-
-
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/theming/app_colors.dart';
 import 'package:fruit_hub/core/theming/app_text_styles.dart';
@@ -27,7 +23,12 @@ class AppButton extends StatelessWidget {
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         ),
       ),
-      child: Text(buttonText, style: AppTextStyles.font18WhiteSimiBold),
+      child: Text(
+        buttonText,
+        style: AppTextStyles.font18WhiteBold.copyWith(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
     );
   }
 }

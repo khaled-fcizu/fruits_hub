@@ -59,9 +59,9 @@ abstract class AppTextStyles {
     fontWeight: FontWeightHelper.bold,
     color: AppColors.mainGreen,
   );
-  static TextStyle font18WhiteSimiBold = TextStyle(
+  static TextStyle font18WhiteBold = TextStyle(
     fontSize: 18.sp,
-    fontWeight: FontWeightHelper.semiBold,
+    fontWeight: FontWeightHelper.bold,
     color: Colors.white,
   );
 }
