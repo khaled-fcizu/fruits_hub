@@ -9,15 +9,45 @@ abstract class AppTextStyles {
     fontWeight: FontWeightHelper.semiBold,
     color: AppColors.gray,
   );
+  static TextStyle font16GraySimiBold = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    color: AppColors.gray,
+  );
+  static TextStyle font16BlackSimiBold = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    color: AppColors.black,
+  );
+  static TextStyle font16MainGreenSimiBold = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    color: AppColors.mainGreen,
+  );
+  static TextStyle font13LightGreenSimiBold = TextStyle(
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    color: AppColors.mainLightGreen,
+  );
   static TextStyle font13GrayRegular = TextStyle(
     fontSize: 13.sp,
     fontWeight: FontWeightHelper.regular,
     color: AppColors.gray,
   );
-  static TextStyle font23BlackGrayBold = TextStyle(
+  static TextStyle font13LightGrayBold = TextStyle(
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: AppColors.lightGray,
+  );
+  static TextStyle font23BlackBold = TextStyle(
     fontSize: 23.sp,
     fontWeight: FontWeightHelper.bold,
-    color: AppColors.darkGray,
+    color: AppColors.black,
+  );
+  static TextStyle font19BlackBold = TextStyle(
+    fontSize: 19.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: AppColors.black,
   );
   static TextStyle font23LightOrangeBold = TextStyle(
     fontSize: 23.sp,

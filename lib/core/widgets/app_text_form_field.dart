@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/core/theming/app_colors.dart';
@@ -43,42 +42,39 @@ class AppTextFormField extends StatelessWidget {
         suffixIcon: suffixIcon,
         contentPadding:
             contentPadding ??
-            EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
+            EdgeInsets.symmetric(horizontal: 20.w, vertical: 25.h),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide(color: Colors.grey, width: 1.3),
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(color: AppColors.lighterGray, width: 1),
         ),
         focusedBorder:
             focusedBorder ??
             OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16),
-              borderSide: BorderSide(color: Colors.blue, width: 1.3),
+              borderRadius: BorderRadius.circular(12),
+              borderSide: BorderSide(color: AppColors.lighterGray, width: 1),
             ),
         enabledBorder:
             enabledBorder ??
             OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16),
-              borderSide: BorderSide(
-                color: Colors.grey,
-                width: 1.3,
-              ),
+              borderRadius: BorderRadius.circular(12),
+              borderSide: BorderSide(color: AppColors.lighterGray, width: 1),
             ),
         errorBorder:
             errorBorder ??
             OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16),
-              borderSide: BorderSide(color: Colors.red, width: 1.3),
+              borderRadius: BorderRadius.circular(12),
+              borderSide: BorderSide(color: Colors.red, width: 1),
             ),
         focusedErrorBorder:
             focusedErrorBorder ??
             OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16),
-              borderSide: BorderSide(color: Colors.red, width: 1.3),
+              borderRadius: BorderRadius.circular(12),
+              borderSide: BorderSide(color: Colors.red, width: 1),
             ),
         hintText: hintText,
-        hintStyle: hintStyle ?? AppTextStyles.font13GraySimiBold,
+        hintStyle: hintStyle ?? AppTextStyles.font13LightGrayBold,
         enabled: true,
-        fillColor: fillColor ?? AppColors.gray,
+        fillColor: fillColor ?? AppColors.morelighterGray,
         filled: true,
       ),
       obscureText: obscureText ?? false,

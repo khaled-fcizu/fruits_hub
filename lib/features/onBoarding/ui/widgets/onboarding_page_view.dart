@@ -21,7 +21,7 @@ class OnBoardingPageView extends StatelessWidget {
               children: [
                 TextSpan(
                   text: 'مرحبًا بك في ',
-                  style: AppTextStyles.font23BlackGrayBold,
+                  style: AppTextStyles.font23BlackBold,
                 ),
                 TextSpan(
                   text: 'Fruit',
@@ -42,7 +42,7 @@ class OnBoardingPageView extends StatelessWidget {
           image: 'assets/svgs/onboarding_fruit_item2.svg',
           subTitile:
               'نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية',
-          title: Text('ابحث وتسوق', style: AppTextStyles.font23BlackGrayBold),
+          title: Text('ابحث وتسوق', style: AppTextStyles.font23BlackBold),
         ),
       ],
     );

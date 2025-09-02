@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/core/routing/app_router.dart';
 import 'package:fruit_hub/core/routing/routes.dart';
+import 'package:fruit_hub/core/theming/app_colors.dart';
 
 import 'generated/l10n.dart' show S;
 
@@ -18,7 +19,9 @@ class FruitHub extends StatelessWidget {
       designSize: Size(375, 812),
       child: MaterialApp(
         theme: ThemeData(
-          fontFamily: 'Cairo'
+          fontFamily: 'Cairo',
+          scaffoldBackgroundColor: Colors.white,
+          colorScheme: ColorScheme.fromSeed(seedColor: AppColors.mainGreen)
         ),
         localizationsDelegates: [
           S.delegate,
