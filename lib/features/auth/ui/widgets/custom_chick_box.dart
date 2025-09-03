@@ -33,7 +33,7 @@ class CustomChickBox extends StatelessWidget {
         ),
         child: isChicked
             ? Padding(
-                padding: const EdgeInsets.all(2),
+                padding: const EdgeInsets.all(4),
                 child: SvgPicture.asset('assets/svgs/true.svg'),
               )
             : SizedBox.shrink(),
