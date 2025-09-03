@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:fruit_hub/core/utils/shared_prefrance_sigleton.dart';
+import 'package:fruit_hub/core/service/shared_prefrance_sigleton.dart';
 import 'package:fruit_hub/firebase_options.dart';
 import 'package:fruit_hub/fruit_hub.dart';
 

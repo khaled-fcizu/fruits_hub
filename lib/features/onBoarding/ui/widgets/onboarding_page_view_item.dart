@@ -6,7 +6,7 @@ import 'package:fruit_hub/core/helpers/spacing_helper.dart';
 import 'package:fruit_hub/core/routing/routes.dart';
 import 'package:fruit_hub/core/theming/app_text_styles.dart';
 import 'package:fruit_hub/core/utils/constants.dart';
-import 'package:fruit_hub/core/utils/shared_prefrance_sigleton.dart';
+import 'package:fruit_hub/core/service/shared_prefrance_sigleton.dart';
 
 class OnBoardingPageViewItem extends StatelessWidget {
   const OnBoardingPageViewItem({

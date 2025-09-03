@@ -6,7 +6,7 @@ import 'package:fruit_hub/core/theming/app_text_styles.dart';
 import 'package:fruit_hub/core/widgets/app_text_button.dart';
 import 'package:fruit_hub/core/widgets/app_text_form_field.dart';
 import 'package:fruit_hub/core/widgets/custom_app_bar.dart';
-import 'package:fruit_hub/features/auth/ui/widgets/dont_have_account_text.dart';
+import 'package:fruit_hub/features/auth/presentation/widgets/dont_have_account_text.dart';
 
 import 'widgets/login_options_item.dart';
 import 'widgets/or_divider.dart';

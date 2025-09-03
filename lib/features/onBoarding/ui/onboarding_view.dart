@@ -6,7 +6,7 @@ import 'package:fruit_hub/core/helpers/spacing_helper.dart';
 import 'package:fruit_hub/core/routing/routes.dart';
 import 'package:fruit_hub/core/theming/app_colors.dart';
 import 'package:fruit_hub/core/utils/constants.dart';
-import 'package:fruit_hub/core/utils/shared_prefrance_sigleton.dart';
+import 'package:fruit_hub/core/service/shared_prefrance_sigleton.dart';
 import 'package:fruit_hub/core/widgets/app_text_button.dart';
 import 'package:fruit_hub/features/onBoarding/ui/widgets/onboarding_page_view.dart';
 

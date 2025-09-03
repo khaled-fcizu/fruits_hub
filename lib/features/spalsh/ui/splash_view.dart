@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fruit_hub/core/helpers/extentions.dart';
 import 'package:fruit_hub/core/routing/routes.dart';
 import 'package:fruit_hub/core/utils/constants.dart';
-import 'package:fruit_hub/core/utils/shared_prefrance_sigleton.dart';
+import 'package:fruit_hub/core/service/shared_prefrance_sigleton.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});

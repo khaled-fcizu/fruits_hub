@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/routing/routes.dart';
-import 'package:fruit_hub/features/auth/ui/login_view.dart';
+import 'package:fruit_hub/features/auth/presentation/login_view.dart';
 import 'package:fruit_hub/features/onBoarding/ui/onboarding_view.dart';
-import 'package:fruit_hub/features/auth/ui/sign_up_view.dart';
+import 'package:fruit_hub/features/auth/presentation/sign_up_view.dart';
 import 'package:fruit_hub/features/spalsh/ui/splash_view.dart';
 
 abstract class AppRouter {
