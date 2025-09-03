@@ -5,8 +5,8 @@ import 'package:fruit_hub/core/theming/app_colors.dart';
 import 'package:fruit_hub/core/widgets/app_text_button.dart';
 import 'package:fruit_hub/core/widgets/app_text_form_field.dart';
 import 'package:fruit_hub/core/widgets/custom_app_bar.dart';
-import 'package:fruit_hub/features/auth/presentation/widgets/already_have_account.dart';
-import 'package:fruit_hub/features/auth/presentation/widgets/condations_and_terms_chick.dart';
+import 'package:fruit_hub/features/auth/presentation/views/widgets/already_have_account.dart';
+import 'package:fruit_hub/features/auth/presentation/views/widgets/condations_and_terms_chick.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/helpers/spacing_helper.dart';
 import 'package:fruit_hub/core/theming/app_text_styles.dart';
-import 'package:fruit_hub/features/auth/presentation/widgets/custom_chick_box.dart';
+import 'package:fruit_hub/features/auth/presentation/views/widgets/custom_chick_box.dart';
 
 class CondationsAndTermsChick extends StatefulWidget {
   const CondationsAndTermsChick({super.key});
