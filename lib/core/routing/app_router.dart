@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruit_hub/core/di/dependancy_injection.dart';
 import 'package:fruit_hub/core/routing/routes.dart';
+import 'package:fruit_hub/features/auth/presentation/managers/signup_cubit/signup_cubit.dart';
 import 'package:fruit_hub/features/auth/presentation/views/login_view.dart';
 import 'package:fruit_hub/features/onBoarding/ui/onboarding_view.dart';
 import 'package:fruit_hub/features/auth/presentation/views/sign_up_view.dart';
@@ -15,7 +18,12 @@ abstract class AppRouter {
       case Routes.loginView:
         return MaterialPageRoute(builder: (_) => LoginView());
       case Routes.signUpView:
-        return MaterialPageRoute(builder: (_) => SignUpView());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<SignupCubit>(),
+            child: SignUpView(),
+          ),
+        );
       default:
         return null;
     }
