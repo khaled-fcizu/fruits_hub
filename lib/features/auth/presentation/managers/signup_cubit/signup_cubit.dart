@@ -10,12 +10,12 @@ class SignupCubit extends Cubit<SignupState> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  Future<void> fetchSignUpState() async {
+  Future<void> emitSignUpState() async {
     emit(SignupLoading());
     var user = await _authRepo.createUserWithEmailAndPassword(
-      email: emailController.text,
-      password: passwordController.text,
-      name: nameController.text,
+      email: emailController.text.trim(),
+      password: passwordController.text.trim(),
+      name: nameController.text.trim(),
     );
     user.fold(
       (user) => emit(SignupSuccess(userEntitiy: user)),

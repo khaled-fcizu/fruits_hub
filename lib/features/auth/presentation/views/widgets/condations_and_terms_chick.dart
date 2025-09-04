@@ -4,7 +4,8 @@ import 'package:fruit_hub/core/theming/app_text_styles.dart';
 import 'package:fruit_hub/features/auth/presentation/views/widgets/custom_chick_box.dart';
 
 class CondationsAndTermsChick extends StatefulWidget {
-  const CondationsAndTermsChick({super.key});
+  const CondationsAndTermsChick({super.key, required this.onChicked});
+    final ValueChanged<bool> onChicked;
 
   @override
   State<CondationsAndTermsChick> createState() => _CondationsAndTermsChickState();
@@ -19,6 +20,7 @@ class _CondationsAndTermsChickState extends State<CondationsAndTermsChick> {
       children: [
         CustomChickBox(isChicked: isChicked, onChicked: (value) { 
           isChicked = value;
+          widget.onChicked(value);
           setState(() {
             
           });

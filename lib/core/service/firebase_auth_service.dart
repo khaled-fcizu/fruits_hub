@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruit_hub/core/errors/exceptions.dart';
 
@@ -8,18 +10,27 @@ class FirebaseAuthService {
   }) async {
     try {
       final credential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: password, password: password);
+          .createUserWithEmailAndPassword(email: email, password: password);
       return credential.user!;
     } on FirebaseAuthException catch (e) {
+      log('FirebaseAuthException.createUserWithEmailAndPassword: ${e.code}');
       if (e.code == 'weak-password') {
-        throw CustomExeption('The password provided is too weak.');
+        throw CustomExeption('كلمة المرور ضعيفة جدا');
       } else if (e.code == 'email-already-in-use') {
-        throw CustomExeption('The account already exists for that email.');
-      } else {
-        throw CustomExeption('An unknown error occurred.');
+        throw CustomExeption('الايميل مستخدم من قبل');
+      } else if (e.code == 'invalid-email') {
+        throw CustomExeption('الايميل غير صالح');
+      }else if(e.code == 'network-request-failed'){
+        throw CustomExeption('شبكة الانترنت ضعيفة او غير متصلة');
+      } 
+      else {
+        throw CustomExeption('حدث خطأ غير معروف.');
       }
     } catch (e) {
-      throw CustomExeption('An unknown error occurred.');
+      log(
+        'FirebaseAuthException.createUserWithEmailAndPassword: ${e.toString()}',
+      );
+      throw CustomExeption('حدث خطأ غير معروف.');
     }
   }
 }
