@@ -28,4 +28,22 @@ class AuthRepoImpl implements AuthRepo {
       return Right(Failure('Something went wrong, please try again later'));
     }
   }
+
+  @override
+  Future<Either<UserEntitiy, Failure>> loginWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      var user = await _firebaseAuthService.loginWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return Left(UserModel.fromFirebaseAuth(user));
+    } on CustomExeption catch (e) {
+      return Right(Failure(e.message));
+    } catch (e) {
+      throw Right(Failure('حدث خطأ ما يرجى المحاولة مرة أخرى لاحقًا'));
+    }
+  }
 }
