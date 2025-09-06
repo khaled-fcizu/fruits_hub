@@ -17,9 +17,11 @@ class SignupCubit extends Cubit<SignupState> {
       password: passwordController.text.trim(),
       name: nameController.text.trim(),
     );
-    user.fold(
-      (user) => emit(SignupSuccess(userEntitiy: user)),
-      (failure) => emit(SignupFailure(errorMessage: failure.message)),
-    );
+    user.fold((user) {
+      _authRepo.addUserData(
+        userEntity: user,
+      );
+      emit(SignupSuccess(userEntitiy: user));
+    }, (failure) => emit(SignupFailure(errorMessage: failure.message)));
   }
 }

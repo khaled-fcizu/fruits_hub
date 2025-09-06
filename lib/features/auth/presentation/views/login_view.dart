@@ -66,12 +66,7 @@ class LoginView extends StatelessWidget {
                   },
                   image: 'assets/svgs/google.svg',
                 ),
-                verticalSpace(16),
-                LoginOptionsItem(
-                  text: 'تسجيل بواسطة أبل',
-                  onPressed: () {},
-                  image: 'assets/svgs/apple.svg',
-                ),
+
                 verticalSpace(16),
                 LoginOptionsItem(
                   text: 'تسجيل بواسطة فيسبوك',
