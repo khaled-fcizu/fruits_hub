@@ -54,7 +54,7 @@ class SignUpBlocListener extends StatelessWidget {
             child: ListBody(
               children: <Widget>[
                 Text(
-                  'تهانينا! تم انشاء حسابك بنجاح',
+                  'تهانينا! تم انشاء حسابك بنجاح. يمكنك الان تسجيل الدخول.',
                   style: AppTextStyles.font16BlackSimiBold,
                 ),
               ],

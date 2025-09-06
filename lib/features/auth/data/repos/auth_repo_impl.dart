@@ -28,7 +28,11 @@ class AuthRepoImpl implements AuthRepo {
         email: email,
         password: password,
       );
-      var userEntity = UserModel.fromFirebaseAuth(user);
+      var userEntity = UserEntitiy(
+        uid: user.uid,
+        name: name,
+        email: email,
+      );
       await addUserData(userEntity: userEntity);
       return Left(userEntity);
     } on CustomExeption catch (e) {

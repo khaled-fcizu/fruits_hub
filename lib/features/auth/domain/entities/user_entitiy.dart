@@ -1,4 +1,4 @@
-abstract class UserEntitiy {
+class UserEntitiy {
   final String email;
   final String uid;
   final String name;
