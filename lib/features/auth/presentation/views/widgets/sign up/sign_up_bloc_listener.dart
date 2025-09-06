@@ -64,7 +64,7 @@ class SignUpBlocListener extends StatelessWidget {
             TextButton(
               style: TextButton.styleFrom(
                 foregroundColor: Colors.white,
-                backgroundColor: Colors.blue,
+                backgroundColor: AppColors.mainGreen,
                 disabledForegroundColor: Colors.grey[380],
               ),
               onPressed: () {
@@ -88,9 +88,12 @@ class SignUpBlocListener extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: () => context.pop(),
-              child: Text('فهمت', style: AppTextStyles.font13LightGreenBold.copyWith(
-                fontWeight: FontWeight.bold
-              )),
+              child: Text(
+                'فهمت',
+                style: AppTextStyles.font13LightGreenBold.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
           ],
         );

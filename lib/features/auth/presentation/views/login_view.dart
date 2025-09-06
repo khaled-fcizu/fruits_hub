@@ -61,7 +61,9 @@ class LoginView extends StatelessWidget {
                 verticalSpace(16),
                 LoginOptionsItem(
                   text: 'تسجيل بواسطة جوجل',
-                  onPressed: () {},
+                  onPressed: () {
+                    context.read<LoginCubit>().signInWithGoogle();
+                  },
                   image: 'assets/svgs/google.svg',
                 ),
                 verticalSpace(16),
@@ -73,7 +75,9 @@ class LoginView extends StatelessWidget {
                 verticalSpace(16),
                 LoginOptionsItem(
                   text: 'تسجيل بواسطة فيسبوك',
-                  onPressed: () {},
+                  onPressed: () {
+                    context.read<LoginCubit>().signInWithFacebook();
+                  },
                   image: 'assets/svgs/facebook.svg',
                 ),
                 LoginBlocListener(),

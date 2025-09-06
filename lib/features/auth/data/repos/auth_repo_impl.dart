@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:fruit_hub/core/errors/exceptions.dart';
 import 'package:fruit_hub/core/errors/failure.dart';
@@ -46,4 +48,32 @@ class AuthRepoImpl implements AuthRepo {
       throw Right(Failure('حدث خطأ ما يرجى المحاولة مرة أخرى لاحقًا'));
     }
   }
+  
+  @override
+  Future<Either<UserEntitiy, Failure>> signInWithGoogle() async{
+    try {
+      var user = await _firebaseAuthService.signInWithGoogle();
+      return Left(UserModel.fromFirebaseAuth(user));
+    } on CustomExeption catch (e) {
+      return Right(Failure(e.message));
+    } catch (e) {
+            log('AuthRepo.signInWithGoogle ${e.toString()}');
+
+      return Right(Failure('حدث خطأ ما يرجى المحاولة مرة أخرى لاحقًا'));
+    }
+    
+  }
+  
+  @override
+  Future<Either<UserEntitiy, Failure>> signInWithFacebook() async{
+    try {
+      var user =  _firebaseAuthService.signInWithFacebook();
+      return Left(UserModel.fromFirebaseAuth(await user));
+    } catch (e) {
+            log('AuthRepo.signInWithFacebook ${e.toString()}');
+
+      return Right(Failure('حدث خطأ ما يرجى المحاولة مرة أخرى لاحقًا'));
+    }
+  }
+  
 }

@@ -1,0 +1,13 @@
+<resources>
+    <!-- اسم التطبيق -->
+    <string name="app_name">fruit_hub</string>
+
+    <!-- Facebook App ID -->
+    <string name="facebook_app_id">2260428531069337</string>
+
+    <!-- Facebook Login Protocol Scheme -->
+    <string name="fb_login_protocol_scheme">fb2260428531069337</string>
+
+    <!-- Facebook Client Token -->
+    <string name="facebook_client_token">a969777d7a4fe718a4354e346220c3b4</string>
+</resources>
