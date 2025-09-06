@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruit_hub/core/errors/exceptions.dart';
 import 'package:fruit_hub/core/errors/failure.dart';
 import 'package:fruit_hub/core/service/database_service.dart';
@@ -21,15 +22,24 @@ class AuthRepoImpl implements AuthRepo {
     required String password,
     required String name,
   }) async {
+    User? user;
     try {
-      var user = await _firebaseAuthService.createUserWithEmailAndPassword(
+      user = await _firebaseAuthService.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
-      return Left(UserModel.fromFirebaseAuth(user));
+      var userEntity = UserModel.fromFirebaseAuth(user);
+      await addUserData(userEntity: userEntity);
+      return Left(userEntity);
     } on CustomExeption catch (e) {
+      if (user != null) {
+        await _firebaseAuthService.deleteUser();
+      }
       return Right(Failure(e.message));
     } catch (e) {
+      if (user != null) {
+        await _firebaseAuthService.deleteUser();
+      }
       return Right(Failure('Something went wrong, please try again later'));
     }
   }
@@ -79,9 +89,7 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  Future<void> addUserData({
-    required UserEntitiy userEntity,
-  }) async {
+  Future<void> addUserData({required UserEntitiy userEntity}) async {
     await _databaseService.saveUserData(
       path: ServiceConstants.usersCollection,
       userData: userEntity.toJson(),
