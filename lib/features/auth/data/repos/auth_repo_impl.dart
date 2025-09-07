@@ -28,23 +28,22 @@ class AuthRepoImpl implements AuthRepo {
         email: email,
         password: password,
       );
-      var userEntity = UserEntitiy(
-        uid: user.uid,
-        name: name,
-        email: email,
-      );
+      var userEntity = UserEntitiy(uid: user.uid, name: name, email: email);
       await addUserData(userEntity: userEntity);
       return Left(userEntity);
     } on CustomExeption catch (e) {
-      if (user != null) {
-        await _firebaseAuthService.deleteUser();
-      }
+      await deleteUser(user);
       return Right(Failure(e.message));
     } catch (e) {
-      if (user != null) {
-        await _firebaseAuthService.deleteUser();
-      }
+      await deleteUser(user);
+
       return Right(Failure('Something went wrong, please try again later'));
+    }
+  }
+
+  Future<void> deleteUser(User? user) async {
+    if (user != null) {
+      await _firebaseAuthService.deleteUser();
     }
   }
 
@@ -58,6 +57,7 @@ class AuthRepoImpl implements AuthRepo {
         email: email,
         password: password,
       );
+      await getUserData(uid: user.uid);
       return Left(UserModel.fromFirebaseAuth(user));
     } on CustomExeption catch (e) {
       return Right(Failure(e.message));
@@ -68,35 +68,62 @@ class AuthRepoImpl implements AuthRepo {
 
   @override
   Future<Either<UserEntitiy, Failure>> signInWithGoogle() async {
+    User? user;
     try {
-      var user = await _firebaseAuthService.signInWithGoogle();
-      return Left(UserModel.fromFirebaseAuth(user));
+      user = await _firebaseAuthService.signInWithGoogle();
+      UserEntitiy userEntity = UserModel.fromFirebaseAuth(user);
+      bool userExists = await _databaseService.checkDocumentExists(path: ServiceConstants.usersCollection, documentId: userEntity.uid);
+      if (userExists) {
+       await getUserData(uid: userEntity.uid);
+      }else{
+        await addUserData(userEntity: userEntity);
+      }
+      return Left(userEntity);
     } on CustomExeption catch (e) {
+      await deleteUser(user);
       return Right(Failure(e.message));
     } catch (e) {
+      await deleteUser(user);
       log('AuthRepo.signInWithGoogle ${e.toString()}');
-
       return Right(Failure('حدث خطأ ما يرجى المحاولة مرة أخرى لاحقًا'));
     }
   }
 
   @override
   Future<Either<UserEntitiy, Failure>> signInWithFacebook() async {
+    User? user;
     try {
-      var user = _firebaseAuthService.signInWithFacebook();
-      return Left(UserModel.fromFirebaseAuth(await user));
+      user = await _firebaseAuthService.signInWithFacebook();
+      UserEntitiy userEntity = UserModel.fromFirebaseAuth(user);
+      bool userExists = await _databaseService.checkDocumentExists(path: ServiceConstants.usersCollection, documentId: userEntity.uid);
+      if (userExists) {
+       await getUserData(uid: userEntity.uid);
+      }else{
+        await addUserData(userEntity: userEntity);
+      }
+      return Left(userEntity);
     } catch (e) {
+      await deleteUser(user);
       log('AuthRepo.signInWithFacebook ${e.toString()}');
-
       return Right(Failure('حدث خطأ ما يرجى المحاولة مرة أخرى لاحقًا'));
     }
   }
 
   @override
   Future<void> addUserData({required UserEntitiy userEntity}) async {
-    await _databaseService.saveUserData(
+    await _databaseService.saveData(
       path: ServiceConstants.usersCollection,
-      userData: userEntity.toJson(),
+      data: userEntity.toJson(),
+      documentId: userEntity.uid,
     );
+  }
+
+  @override
+  Future<UserEntitiy> getUserData({required String uid}) async {
+    var userData = await _databaseService.getData(
+      path: ServiceConstants.usersCollection,
+      documentId: uid,
+    );
+    return UserEntitiy.fromJson(userData!);
   }
 }
