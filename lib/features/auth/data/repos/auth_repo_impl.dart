@@ -72,10 +72,13 @@ class AuthRepoImpl implements AuthRepo {
     try {
       user = await _firebaseAuthService.signInWithGoogle();
       UserEntitiy userEntity = UserModel.fromFirebaseAuth(user);
-      bool userExists = await _databaseService.checkDocumentExists(path: ServiceConstants.usersCollection, documentId: userEntity.uid);
+      bool userExists = await _databaseService.checkDocumentExists(
+        path: ServiceConstants.usersCollection,
+        documentId: userEntity.uid,
+      );
       if (userExists) {
-       await getUserData(uid: userEntity.uid);
-      }else{
+        await getUserData(uid: userEntity.uid);
+      } else {
         await addUserData(userEntity: userEntity);
       }
       return Left(userEntity);
@@ -95,10 +98,13 @@ class AuthRepoImpl implements AuthRepo {
     try {
       user = await _firebaseAuthService.signInWithFacebook();
       UserEntitiy userEntity = UserModel.fromFirebaseAuth(user);
-      bool userExists = await _databaseService.checkDocumentExists(path: ServiceConstants.usersCollection, documentId: userEntity.uid);
+      bool userExists = await _databaseService.checkDocumentExists(
+        path: ServiceConstants.usersCollection,
+        documentId: userEntity.uid,
+      );
       if (userExists) {
-       await getUserData(uid: userEntity.uid);
-      }else{
+        await getUserData(uid: userEntity.uid);
+      } else {
         await addUserData(userEntity: userEntity);
       }
       return Left(userEntity);
