@@ -7,8 +7,6 @@ import 'package:fruit_hub/core/theming/app_colors.dart';
 
 import 'generated/l10n.dart' show S;
 
-
-
 class FruitHub extends StatelessWidget {
   const FruitHub({super.key});
 
@@ -21,7 +19,7 @@ class FruitHub extends StatelessWidget {
         theme: ThemeData(
           fontFamily: 'Cairo',
           scaffoldBackgroundColor: Colors.white,
-          colorScheme: ColorScheme.fromSeed(seedColor: AppColors.mainGreen)
+          colorScheme: ColorScheme.fromSeed(seedColor: AppColors.mainGreen),
         ),
         localizationsDelegates: [
           S.delegate,
@@ -32,7 +30,7 @@ class FruitHub extends StatelessWidget {
         supportedLocales: S.delegate.supportedLocales,
         locale: Locale('ar'),
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.splashView,
+        initialRoute: Routes.homeView,
         onGenerateRoute: AppRouter.onGenerateRoute,
       ),
     );

@@ -39,6 +39,16 @@ abstract class AppTextStyles {
     fontWeight: FontWeightHelper.regular,
     color: AppColors.gray,
   );
+  static TextStyle font16GrayRegular = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColors.gray,
+  );
+  static TextStyle font16BlackBold = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: AppColors.black,
+  );
   static TextStyle font13LightGrayBold = TextStyle(
     fontSize: 13.sp,
     fontWeight: FontWeightHelper.bold,
