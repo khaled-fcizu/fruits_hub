@@ -12,8 +12,8 @@ class FruitItem extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          width: 163.w,
-          height: 214.h,
+          // width: 163.w,
+          // height: 214.h,
           decoration: BoxDecoration(color: AppColors.babyBlue),
         ),
         Positioned(
