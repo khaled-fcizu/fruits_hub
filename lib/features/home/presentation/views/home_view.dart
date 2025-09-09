@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/core/helpers/spacing_helper.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/best_seller_and_more_texts.dart';
+import 'package:fruit_hub/features/home/presentation/views/widgets/bottom_navigation_bar/custom_bottom_navigation_bar.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/featured_list_view.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/best_seller_fruit_grid_view.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/home_app_bar.dart';
@@ -13,6 +14,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: CustomBottomNavigationBar(),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
