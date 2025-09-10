@@ -5,6 +5,7 @@ import 'package:fruit_hub/core/routing/routes.dart';
 import 'package:fruit_hub/features/auth/presentation/managers/login_cubit/login_cubit.dart';
 import 'package:fruit_hub/features/auth/presentation/managers/signup_cubit/signup_cubit.dart';
 import 'package:fruit_hub/features/auth/presentation/views/login_view.dart';
+import 'package:fruit_hub/features/best_seller_fruits/presentation/views/best_seller_view.dart';
 import 'package:fruit_hub/features/home/presentation/views/home_view.dart';
 import 'package:fruit_hub/features/onBoarding/ui/onboarding_view.dart';
 import 'package:fruit_hub/features/auth/presentation/views/sign_up_view.dart';
@@ -19,6 +20,8 @@ abstract class AppRouter {
         return MaterialPageRoute(builder: (_) => OnBoardingView());
       case Routes.homeView:
         return MaterialPageRoute(builder: (_) => HomeView());
+      case Routes.bestSellerView:
+        return MaterialPageRoute(builder: (_) => BestSellerView());
       case Routes.loginView:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(

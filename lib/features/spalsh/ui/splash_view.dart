@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruit_hub/core/helpers/extentions.dart';
 import 'package:fruit_hub/core/routing/routes.dart';
+import 'package:fruit_hub/core/service/firebase_auth_service.dart';
 import 'package:fruit_hub/core/utils/constants.dart';
 import 'package:fruit_hub/core/service/shared_prefrance_sigleton.dart';
 
@@ -21,9 +22,14 @@ class _SplashViewState extends State<SplashView> {
 
   void excuteNavigation() {
     Future.delayed(Duration(seconds: 3), () {
-      if(SharedPrefranceSigleton.getBool(key: isOnBoardingViewSeen)){
-        context.pushReplacementNamed(Routes.loginView);
-      }else{
+      if (SharedPrefranceSigleton.getBool(key: isOnBoardingViewSeen)) {
+        var isLoggedin = FirebaseAuthService().isLoggedIn();
+        if (isLoggedin) {
+          context.pushNamed(Routes.homeView);
+        } else {
+          context.pushReplacementNamed(Routes.loginView);
+        }
+      } else {
         context.pushReplacementNamed(Routes.onBoardingView);
       }
     });

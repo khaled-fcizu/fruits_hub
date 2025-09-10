@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
@@ -6,6 +7,8 @@ import 'package:fruit_hub/core/errors/exceptions.dart';
 import 'package:fruit_hub/core/errors/failure.dart';
 import 'package:fruit_hub/core/service/database_service.dart';
 import 'package:fruit_hub/core/service/firebase_auth_service.dart';
+import 'package:fruit_hub/core/service/shared_prefrance_sigleton.dart';
+import 'package:fruit_hub/core/utils/prfs_constants.dart';
 import 'package:fruit_hub/core/utils/service_constants.dart';
 import 'package:fruit_hub/features/auth/data/models/user_model.dart';
 import 'package:fruit_hub/features/auth/domain/entities/user_entitiy.dart';
@@ -57,8 +60,9 @@ class AuthRepoImpl implements AuthRepo {
         email: email,
         password: password,
       );
-      await getUserData(uid: user.uid);
-      return Left(UserModel.fromFirebaseAuth(user));
+      var userEntity = await getUserData(uid: user.uid);
+      await saveUserData(userEntity: userEntity);
+      return Left(userEntity);
     } on CustomExeption catch (e) {
       return Right(Failure(e.message));
     } catch (e) {
@@ -119,7 +123,7 @@ class AuthRepoImpl implements AuthRepo {
   Future<void> addUserData({required UserEntitiy userEntity}) async {
     await _databaseService.saveData(
       path: ServiceConstants.usersCollection,
-      data: userEntity.toJson(),
+      data: UserModel.fromEntity(userEntity).toJson(),
       documentId: userEntity.uid,
     );
   }
@@ -130,6 +134,15 @@ class AuthRepoImpl implements AuthRepo {
       path: ServiceConstants.usersCollection,
       documentId: uid,
     );
-    return UserEntitiy.fromJson(userData!);
+    return UserModel.fromJson(userData);
+  }
+
+  @override
+  Future<void> saveUserData({required UserEntitiy userEntity}) async {
+    var jsonData = jsonEncode((UserModel.fromEntity(userEntity)).toJson());
+    await SharedPrefranceSigleton.setString(
+      key: PrefsConstants.saveUserData,
+      value: jsonData,
+    );
   }
 }

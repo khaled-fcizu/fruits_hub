@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:fruit_hub/core/theming/app_text_styles.dart';
+import 'package:fruit_hub/core/widgets/notification_ring.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
@@ -32,17 +32,10 @@ class HomeAppBar extends StatelessWidget {
               ),
             ),
           ),
-          CircleAvatar(
-            radius: 20.r,
-            backgroundColor: Colors.grey.shade200,
-            child: SvgPicture.asset(
-              'assets/svgs/notification_ring.svg',
-              width: 20.w,
-              height: 20.h,
-            ),
-          ),
+          NotificationRing(),
         ],
       ),
     );
   }
 }
+
