@@ -1,10 +1,10 @@
-
-
 import 'package:fruit_hub/core/entities/product_entity.dart';
 import 'package:fruit_hub/core/models/review_model.dart';
 
 class ProductModel extends ProductEntity {
+  final int sellingCount;
   ProductModel({
+    this.sellingCount = 0,
     required super.productName,
     required super.code,
     required super.price,
@@ -21,6 +21,7 @@ class ProductModel extends ProductEntity {
 
   toJson() => {
     'reviews': reviews.map((e) => ReviewModel.formEntity(e).toJson()).toList(),
+    'sellingCount': sellingCount,
     'productName': productName,
     'code': code,
     'price': price,
@@ -34,7 +35,9 @@ class ProductModel extends ProductEntity {
   };
 
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
-    reviews: json['reviews'],
+    reviews: json['reviews'] != null
+        ? json['reviews'].map((e) => ReviewModel.fromJson(e)).toList()
+        : [],
     isFeatured: json['isFeatured'],
     productName: json['productName'],
     code: json['code'],
