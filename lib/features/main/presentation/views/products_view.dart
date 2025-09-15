@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/core/helpers/spacing_helper.dart';
 import 'package:fruit_hub/core/widgets/build_app_bar.dart';
-import 'package:fruit_hub/features/home/presentation/views/widgets/best_seller_and_more_texts.dart';
-import 'package:fruit_hub/features/home/presentation/views/widgets/main_search_bar.dart';
-import 'package:fruit_hub/features/home/presentation/views/widgets/our_products_and_filter_icon.dart';
-import 'package:fruit_hub/features/home/presentation/views/widgets/fruits_grid_view.dart';
-import 'package:fruit_hub/features/home/presentation/views/widgets/product_list_view.dart';
+import 'package:fruit_hub/features/main/presentation/views/widgets/best_seller_and_more_texts.dart';
+import 'package:fruit_hub/features/main/presentation/views/widgets/main_search_bar.dart';
+import 'package:fruit_hub/features/main/presentation/views/widgets/our_products_and_filter_icon.dart';
+import 'package:fruit_hub/features/main/presentation/views/widgets/fruits_grid_view.dart';
+import 'package:fruit_hub/features/main/presentation/views/widgets/product_list_view.dart';
 
 class ProductsView extends StatelessWidget {
   const ProductsView({super.key});

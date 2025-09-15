@@ -6,7 +6,7 @@ import 'package:fruit_hub/features/auth/presentation/managers/login_cubit/login_
 import 'package:fruit_hub/features/auth/presentation/managers/signup_cubit/signup_cubit.dart';
 import 'package:fruit_hub/features/auth/presentation/views/login_view.dart';
 import 'package:fruit_hub/features/best_seller_fruits/presentation/views/best_seller_view.dart';
-import 'package:fruit_hub/features/home/presentation/views/main_view.dart';
+import 'package:fruit_hub/features/main/presentation/views/main_view.dart';
 import 'package:fruit_hub/features/onBoarding/ui/onboarding_view.dart';
 import 'package:fruit_hub/features/auth/presentation/views/sign_up_view.dart';
 import 'package:fruit_hub/features/spalsh/ui/splash_view.dart';

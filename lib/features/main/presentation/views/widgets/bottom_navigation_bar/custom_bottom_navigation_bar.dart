@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fruit_hub/features/home/domain/bottom_nav_bar_entity.dart';
-import 'package:fruit_hub/features/home/presentation/views/widgets/bottom_navigation_bar/bottom_nav_item_output.dart';
+import 'package:fruit_hub/features/main/domain/bottom_nav_bar_entity.dart';
+import 'package:fruit_hub/features/main/presentation/views/widgets/bottom_navigation_bar/bottom_nav_item_output.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({super.key, required this.onTap});

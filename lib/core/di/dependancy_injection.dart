@@ -8,7 +8,7 @@ import 'package:get_it/get_it.dart';
 final GetIt getIt = GetIt.instance;
 
 void setupGetIt() {
-  //sign up
+  //Auth
   getIt.registerLazySingleton<FirebaseAuthService>(() => FirebaseAuthService());
   getIt.registerLazySingleton<FirestoreService>(() => FirestoreService());
   getIt.registerLazySingleton<AuthRepoImpl>(
@@ -16,4 +16,6 @@ void setupGetIt() {
   );
   getIt.registerFactory<SignupCubit>(() => SignupCubit(getIt<AuthRepoImpl>()));
   getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt<AuthRepoImpl>()));
+
+
 }
