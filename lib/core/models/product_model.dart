@@ -2,9 +2,9 @@ import 'package:fruit_hub/core/entities/product_entity.dart';
 import 'package:fruit_hub/core/models/review_model.dart';
 
 class ProductModel extends ProductEntity {
-  final int sellingCount;
+  final int bestSellingCount;
   ProductModel({
-    this.sellingCount = 0,
+    this.bestSellingCount = 0,
     required super.productName,
     required super.code,
     required super.price,
@@ -21,7 +21,7 @@ class ProductModel extends ProductEntity {
 
   toJson() => {
     'reviews': reviews.map((e) => ReviewModel.formEntity(e).toJson()).toList(),
-    'sellingCount': sellingCount,
+    'sellingCount': bestSellingCount,
     'productName': productName,
     'code': code,
     'price': price,
@@ -65,4 +65,21 @@ class ProductModel extends ProductEntity {
     isOrganic: entity.isOrganic,
     expirationMonths: entity.expirationMonths,
   );
+
+  ProductEntity toEntity(){
+    return ProductEntity(
+      reviews: reviews.map((e) => ReviewModel.formEntity(e).toEntity()).toList(),
+      isFeatured: isFeatured,
+      productName: productName,
+      code: code,
+      price: price,
+      description: description,
+      image: image,
+      imageUrl: imageUrl,
+      calorieSUnitAmount: calorieSUnitAmount,
+      numberOfCalories: numberOfCalories,
+      isOrganic: isOrganic,
+      expirationMonths: expirationMonths,
+    );
+  }
 }

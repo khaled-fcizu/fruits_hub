@@ -37,4 +37,12 @@ class ReviewModel extends ReviewEntity {
     'userName': userName,
     'userImage': userImage,
   };
+
+  ReviewEntity toEntity() => ReviewEntity(
+    reviewDescription: reviewDescription,
+    rating: rating,
+    date: date,
+    userName: userName,
+    userImage: userImage,
+  );
 }
