@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/helpers/spacing_helper.dart';
 import 'package:fruit_hub/core/theming/app_text_styles.dart';
 import 'package:fruit_hub/core/widgets/build_app_bar.dart';
-import 'package:fruit_hub/features/home/presentation/views/widgets/products_grid_view.dart';
+import 'package:fruit_hub/features/home/presentation/views/widgets/fruits_grid_view.dart';
 
 class BestSellerView extends StatelessWidget {
   const BestSellerView({super.key});

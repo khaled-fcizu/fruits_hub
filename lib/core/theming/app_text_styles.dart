@@ -9,6 +9,11 @@ abstract class AppTextStyles {
     fontWeight: FontWeightHelper.semiBold,
     color: AppColors.gray,
   );
+  static TextStyle font13BlackSemiBold = TextStyle(
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    color: AppColors.black,
+  );
   static TextStyle font16GraySimiBold = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.semiBold,

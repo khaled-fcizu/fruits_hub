@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/core/helpers/spacing_helper.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/best_seller_and_more_texts.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/featured_list_view.dart';
-import 'package:fruit_hub/features/home/presentation/views/widgets/products_grid_view.dart';
+import 'package:fruit_hub/features/home/presentation/views/widgets/fruits_grid_view.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/home_app_bar.dart';
-import 'package:fruit_hub/features/home/presentation/views/widgets/home_search_bar.dart';
+import 'package:fruit_hub/features/home/presentation/views/widgets/main_search_bar.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -21,7 +21,7 @@ class HomeView extends StatelessWidget {
               children: [
                 HomeAppBar(),
                 verticalSpace(16),
-                HomeSearchBar(),
+                MainSearchBar(),
                 verticalSpace(12),
                 FeaturedListView(),
                 verticalSpace(12),
