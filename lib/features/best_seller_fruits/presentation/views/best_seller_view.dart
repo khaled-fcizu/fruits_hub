@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/helpers/spacing_helper.dart';
 import 'package:fruit_hub/core/theming/app_text_styles.dart';
-import 'package:fruit_hub/features/best_seller_fruits/presentation/views/widgets/best_seller_app_bar.dart';
-import 'package:fruit_hub/features/home/presentation/views/widgets/best_seller_fruit_grid_view.dart';
+import 'package:fruit_hub/core/widgets/build_app_bar.dart';
+import 'package:fruit_hub/features/home/presentation/views/widgets/products_grid_view.dart';
 
 class BestSellerView extends StatelessWidget {
   const BestSellerView({super.key});
@@ -10,7 +10,7 @@ class BestSellerView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildBestSellerAppBar(context),
+      appBar: buildAppBar(context,  title: 'الأكثر مبيعًا'),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: SafeArea(
@@ -31,7 +31,7 @@ class BestSellerView extends StatelessWidget {
                   ],
                 ),
               ),
-              BestSellerFruitGridView(),
+              ProductsGridView(),
             ],
           ),
         ),

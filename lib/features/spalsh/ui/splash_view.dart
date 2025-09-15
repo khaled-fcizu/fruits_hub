@@ -25,7 +25,7 @@ class _SplashViewState extends State<SplashView> {
       if (SharedPrefranceSigleton.getBool(key: isOnBoardingViewSeen)) {
         var isLoggedin = FirebaseAuthService().isLoggedIn();
         if (isLoggedin) {
-          context.pushNamed(Routes.homeView);
+          context.pushNamed(Routes.mainView);
         } else {
           context.pushReplacementNamed(Routes.loginView);
         }

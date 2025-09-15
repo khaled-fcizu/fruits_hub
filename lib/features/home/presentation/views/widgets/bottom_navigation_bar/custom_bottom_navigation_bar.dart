@@ -3,8 +3,8 @@ import 'package:fruit_hub/features/home/domain/bottom_nav_bar_entity.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/bottom_navigation_bar/bottom_nav_item_output.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
-  const CustomBottomNavigationBar({super.key});
-
+  const CustomBottomNavigationBar({super.key, required this.onTap});
+  final ValueChanged<int> onTap;
   @override
   State<CustomBottomNavigationBar> createState() =>
       _CustomBottomNavigationBarState();
@@ -37,9 +37,12 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           return Expanded(
             flex: index == selectedInedex ? 3 : 2,
             child: GestureDetector(
-              onTap: () => setState(() {
-                selectedInedex = index;
-              }),
+              onTap: () {
+                setState(() {
+                  selectedInedex = index;
+                });
+                widget.onTap(index);
+              },
               child: BottomNavItemOutput(
                 isActive: selectedInedex == index,
                 bottomNavBarEntity: item,
