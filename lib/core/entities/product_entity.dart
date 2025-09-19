@@ -1,25 +1,26 @@
-import 'dart:io';
 import 'package:fruit_hub/core/entities/review_entity.dart';
 
 
 
 class ProductEntity {
+  final num sellingCount;
   final String productName;
   final String description;
   final String code;
   final num price;
-  final File? image;
   final bool isFeatured;
   String? imageUrl;
   final int expirationMonths;
   final bool isOrganic;
   final int numberOfCalories;
   final int calorieSUnitAmount;
-  final int avgrating = 0;
+  final num avgRating;
   final int totalRatings = 0;
   final List<ReviewEntity> reviews;
 
-  ProductEntity({
+  ProductEntity( {
+    this.avgRating = 0,
+    this.sellingCount = 0,
     required this.reviews,
     required this.calorieSUnitAmount,
     required this.numberOfCalories,
@@ -29,7 +30,6 @@ class ProductEntity {
     required this.code,
     required this.price,
     required this.description,
-    this.image,
     this.imageUrl,
     this.isFeatured = false,
   });

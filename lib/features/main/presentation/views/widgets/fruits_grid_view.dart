@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruit_hub/core/entities/product_entity.dart';
 import 'package:fruit_hub/core/widgets/fruit_item.dart';
 
-class ProductsGridView extends StatelessWidget {
-  const ProductsGridView({super.key});
-
+class FruitsGridView extends StatelessWidget {
+  const FruitsGridView({super.key, required this.products});
+  final List<ProductEntity> products;
   @override
   Widget build(BuildContext context) {
     return SliverGrid(
       delegate: SliverChildBuilderDelegate(
-        (context, index) => const FruitItem(),
-        childCount: 6,
+        (context, index) => FruitItem(productEntity: products[index],),
+        childCount: products.length,
       ),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,

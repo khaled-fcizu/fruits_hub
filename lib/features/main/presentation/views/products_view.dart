@@ -16,27 +16,28 @@ class ProductsView extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(context, isLeadingVisible: false, title: 'المنتجات'),
       body: Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: Column(
-              children: [
-                verticalSpace(16),
-                MainSearchBar(),
-                verticalSpace(16),
-                OurProductsAndFilterIcon(),
-                verticalSpace(8),
-                ProductListView(),
-                verticalSpace(24),
-                BestSellerAndMoreTexts(),
-                verticalSpace(8),
-              ]
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: Column(
+                children: [
+                  verticalSpace(16),
+                  MainSearchBar(),
+                  verticalSpace(16),
+                  OurProductsAndFilterIcon(),
+                  verticalSpace(8),
+                  ProductListView(),
+                  verticalSpace(24),
+                  BestSellerAndMoreTexts(),
+                  verticalSpace(8),
+                ],
+              ),
             ),
-          ),
-          ProductsGridView(),
-        ],
+           // FruitsGridView(),
+          ],
+        ),
       ),
-    ));
+    );
   }
 }

@@ -48,6 +48,7 @@ dependencies:
   google_sign_in: ^7.1.1
   intl: ^0.20.2
   shared_preferences: ^2.5.3
+  skeletonizer: ^2.1.0+1
 
 dev_dependencies:
   flutter_launcher_icons: ^0.14.4
@@ -110,10 +111,9 @@ flutter_launcher_icons:
 flutter_intl:
   enabled: true
 
-
 flutter_assets:
-  assets_path: 
-  - assets/images/
-  - assets/svgs/
+  assets_path:
+    - assets/images/
+    - assets/svgs/
   output_path: lib/core/utils
   filename: app_assets.dart

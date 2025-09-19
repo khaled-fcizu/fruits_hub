@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/di/dependancy_injection.dart';
+import 'package:fruit_hub/core/repos/product_repo_impl.dart';
 import 'package:fruit_hub/core/routing/routes.dart';
 import 'package:fruit_hub/features/auth/presentation/managers/login_cubit/login_cubit.dart';
 import 'package:fruit_hub/features/auth/presentation/managers/signup_cubit/signup_cubit.dart';
 import 'package:fruit_hub/features/auth/presentation/views/login_view.dart';
 import 'package:fruit_hub/features/best_seller_fruits/presentation/views/best_seller_view.dart';
+import 'package:fruit_hub/features/main/presentation/managers/products_cubit/products_cubit.dart';
 import 'package:fruit_hub/features/main/presentation/views/main_view.dart';
 import 'package:fruit_hub/features/onBoarding/ui/onboarding_view.dart';
 import 'package:fruit_hub/features/auth/presentation/views/sign_up_view.dart';
@@ -21,7 +23,14 @@ abstract class AppRouter {
       case Routes.mainView:
         return MaterialPageRoute(builder: (_) => MainView());
       case Routes.bestSellerView:
-        return MaterialPageRoute(builder: (_) => BestSellerView());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) =>
+                ProductsCubit(getIt<ProductRepoImpl>())
+                  ..getBestSellerProducts(),
+            child: BestSellerView(),
+          ),
+        );
       case Routes.loginView:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(

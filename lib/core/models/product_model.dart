@@ -1,15 +1,16 @@
 import 'package:fruit_hub/core/entities/product_entity.dart';
+import 'package:fruit_hub/core/entities/review_entity.dart';
+import 'package:fruit_hub/core/helpers/get_avg_rating.dart';
 import 'package:fruit_hub/core/models/review_model.dart';
 
 class ProductModel extends ProductEntity {
-  final int bestSellingCount;
   ProductModel({
-    this.bestSellingCount = 0,
+    required super.avgRating,
+    required super.sellingCount,
     required super.productName,
     required super.code,
     required super.price,
     required super.description,
-    required super.image,
     required super.imageUrl,
     required super.isFeatured,
     required super.calorieSUnitAmount,
@@ -21,7 +22,6 @@ class ProductModel extends ProductEntity {
 
   toJson() => {
     'reviews': reviews.map((e) => ReviewModel.formEntity(e).toJson()).toList(),
-    'sellingCount': bestSellingCount,
     'productName': productName,
     'code': code,
     'price': price,
@@ -32,18 +32,20 @@ class ProductModel extends ProductEntity {
     'numberOfCalories': numberOfCalories,
     'isOrganic': isOrganic,
     'expirationMonths': expirationMonths,
+    'sellingCount': sellingCount,
   };
 
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
+    avgRating: getAvgRating(json['reviews']?? [])  ,
+    sellingCount: json['sellingCount'],
     reviews: json['reviews'] != null
-        ? json['reviews'].map((e) => ReviewModel.fromJson(e)).toList()
-        : [],
+        ? (json['reviews'] as List).map((e) => ReviewModel.fromJson(e as Map<String, dynamic>)).toList().cast<ReviewEntity>() 
+        : <ReviewModel>[],
     isFeatured: json['isFeatured'],
     productName: json['productName'],
     code: json['code'],
     price: json['price'],
     description: json['description'],
-    image: json['image'],
     imageUrl: json['imageUrl'],
     calorieSUnitAmount: json['calorieSUnitAmount'],
     numberOfCalories: json['numberOfCalories'],
@@ -52,13 +54,14 @@ class ProductModel extends ProductEntity {
   );
 
   factory ProductModel.fromEntity(ProductEntity entity) => ProductModel(
+    avgRating: entity.avgRating,
+    sellingCount: entity.sellingCount,
     reviews: entity.reviews.map((e) => ReviewModel.formEntity(e)).toList(),
     isFeatured: entity.isFeatured,
     productName: entity.productName,
     code: entity.code,
     price: entity.price,
     description: entity.description,
-    image: entity.image,
     imageUrl: entity.imageUrl,
     calorieSUnitAmount: entity.calorieSUnitAmount,
     numberOfCalories: entity.numberOfCalories,
@@ -66,15 +69,17 @@ class ProductModel extends ProductEntity {
     expirationMonths: entity.expirationMonths,
   );
 
-  ProductEntity toEntity(){
+  ProductEntity toEntity() {
     return ProductEntity(
-      reviews: reviews.map((e) => ReviewModel.formEntity(e).toEntity()).toList(),
+      sellingCount: sellingCount,
+      reviews: reviews
+          .map((e) => ReviewModel.formEntity(e).toEntity())
+          .toList(),
       isFeatured: isFeatured,
       productName: productName,
       code: code,
       price: price,
       description: description,
-      image: image,
       imageUrl: imageUrl,
       calorieSUnitAmount: calorieSUnitAmount,
       numberOfCalories: numberOfCalories,

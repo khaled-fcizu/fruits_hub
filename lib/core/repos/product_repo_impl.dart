@@ -17,7 +17,7 @@ class ProductRepoImpl implements ProductRepo {
                 path: ServiceConstants.productCollection,
                 query: {
                   'limit': 10,
-                  'orederBy': 'bestSellingCount',
+                  'orederBy': 'sellingCount',
                   'descending': true,
                 },
               )

@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruit_hub/core/entities/product_entity.dart';
 import 'package:fruit_hub/core/theming/app_colors.dart';
 import 'package:fruit_hub/core/theming/app_text_styles.dart';
 
 class FruitItem extends StatelessWidget {
-  const FruitItem({super.key});
-
+  const FruitItem({super.key, required this.productEntity});
+  final ProductEntity productEntity;
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          // width: 163.w,
-          // height: 214.h,
-          decoration: BoxDecoration(color: AppColors.babyBlue),
-        ),
+        Container(decoration: BoxDecoration(color: AppColors.babyBlue)),
         Positioned(
           top: 17,
           left: 20,
