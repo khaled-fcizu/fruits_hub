@@ -1,9 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruit_hub/core/entities/product_entity.dart';
 import 'package:fruit_hub/core/theming/app_colors.dart';
 import 'package:fruit_hub/core/theming/app_text_styles.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class FruitItem extends StatelessWidget {
   const FruitItem({super.key, required this.productEntity});
@@ -16,10 +18,19 @@ class FruitItem extends StatelessWidget {
         Positioned(
           top: 17,
           left: 20,
-          child: Image.asset(
-            'assets/images/fruit_test.png',
-            width: 114.w,
-            height: 105.h,
+          child: CachedNetworkImage(
+            imageUrl: productEntity.imageUrl!,
+            height: 100.h,
+            width: 100.w,
+            fit: BoxFit.cover,
+            progressIndicatorBuilder: (context, url, downloadProgress) =>
+                Skeletonizer(
+                  child: Container(
+                    height: 100.h,
+                    width: 100.w,
+                    color: Colors.indigo,
+                  ),
+                ),
           ),
         ),
         Positioned(
@@ -30,7 +41,7 @@ class FruitItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'فراولة',
+                productEntity.productName,
                 style: AppTextStyles.font13GraySimiBold.copyWith(
                   color: Colors.black,
                 ),
@@ -40,7 +51,7 @@ class FruitItem extends StatelessWidget {
                 TextSpan(
                   children: [
                     TextSpan(
-                      text: '30جنية',
+                      text: '${productEntity.price}جنية',
                       style: AppTextStyles.font13LightGreenBold.copyWith(
                         color: Colors.orange,
                       ),

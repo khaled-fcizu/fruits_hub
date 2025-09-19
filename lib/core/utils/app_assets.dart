@@ -118,6 +118,10 @@ class Assets {
   /// assets/svgs/search.svg
   static const String assetsSvgsSearch = "assets/svgs/search.svg";
 
+  /// Assets for assetsSvgsTrash
+  /// assets/svgs/trash.svg
+  static const String assetsSvgsTrash = "assets/svgs/trash.svg";
+
   /// Assets for assetsSvgsTrue
   /// assets/svgs/true.svg
   static const String assetsSvgsTrue = "assets/svgs/true.svg";

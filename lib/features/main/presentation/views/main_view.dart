@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/di/dependancy_injection.dart';
-import 'package:fruit_hub/core/repos/product_repo.dart';
 import 'package:fruit_hub/core/repos/product_repo_impl.dart';
 import 'package:fruit_hub/features/main/presentation/managers/products_cubit/products_cubit.dart';
 import 'package:fruit_hub/features/main/presentation/views/cart_view.dart';
@@ -30,10 +29,17 @@ class _MainViewState extends State<MainView> {
           index: currentIndex,
           children: [
             BlocProvider(
-              create: (context) => ProductsCubit(getIt<ProductRepoImpl>())..getBestSellerProducts(),
+              create: (context) =>
+                  ProductsCubit(getIt<ProductRepoImpl>())
+                    ..getBestSellerProducts(),
               child: HomeView(),
             ),
-            ProductsView(),
+            BlocProvider(
+              create: (context) =>
+                  ProductsCubit(getIt<ProductRepoImpl>())
+                    ..getBestSellerProducts(),
+              child: ProductsView(),
+            ),
             CartView(),
             ProfileView(),
           ],

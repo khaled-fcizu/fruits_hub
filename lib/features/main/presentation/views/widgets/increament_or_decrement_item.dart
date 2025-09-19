@@ -1,0 +1,21 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class IncrementOrDecrementItem extends StatelessWidget {
+  const IncrementOrDecrementItem({
+    super.key,
+    required this.backgroungColor,
+    required this.iconColor,
+    required this.icon,
+  });
+  final Color backgroungColor, iconColor;
+  final IconData icon;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(1),
+      decoration: BoxDecoration(color: backgroungColor, shape: BoxShape.circle),
+      child: Icon(icon, color: iconColor, size: 20.sp),
+    );
+  }
+}
