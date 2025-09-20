@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/core/helpers/spacing_helper.dart';
 import 'package:fruit_hub/core/widgets/app_text_button.dart';
 import 'package:fruit_hub/core/widgets/build_app_bar.dart';
+import 'package:fruit_hub/core/widgets/custom_divider.dart';
+import 'package:fruit_hub/features/main/presentation/managers/cubit/cart_cubit.dart';
 import 'package:fruit_hub/features/main/presentation/views/widgets/bottom_navigation_bar/products_in_cart_text.dart';
 import 'package:fruit_hub/features/main/presentation/views/widgets/cart_list_view.dart';
 
@@ -28,14 +31,20 @@ class CartView extends StatelessWidget {
             SliverToBoxAdapter(
               child: Padding(
                 padding: EdgeInsetsGeometry.symmetric(horizontal: 16.w),
-                child: Divider(color: Color(0xFFDCDEDE), thickness: 0.4),
+                child:
+                    context.read<CartCubit>().cartEntity.cartItemsList.isEmpty
+                    ? const SizedBox()
+                    : CustomDivider(),
               ),
             ),
             CartListView(),
             SliverToBoxAdapter(
               child: Padding(
                 padding: EdgeInsetsGeometry.symmetric(horizontal: 16.w),
-                child: Divider(color: Color(0xFFDCDEDE), thickness: 0.4),
+                child:
+                    context.read<CartCubit>().cartEntity.cartItemsList.isEmpty
+                    ? const SizedBox()
+                    : CustomDivider(),
               ),
             ),
           ],

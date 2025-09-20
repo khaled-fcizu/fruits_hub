@@ -5,11 +5,12 @@ import 'package:fruit_hub/core/helpers/spacing_helper.dart';
 import 'package:fruit_hub/core/theming/app_colors.dart';
 import 'package:fruit_hub/core/theming/app_text_styles.dart';
 import 'package:fruit_hub/core/utils/app_assets.dart';
+import 'package:fruit_hub/features/main/domain/entities/cart_item_entity.dart';
 import 'package:fruit_hub/features/main/presentation/views/widgets/increament_or_decrement_item.dart';
 
 class CartProductItem extends StatelessWidget {
-  const CartProductItem({super.key});
-
+  const CartProductItem({super.key, required this.cartItemEntity});
+  final CartItemEntity cartItemEntity;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -25,7 +26,7 @@ class CartProductItem extends StatelessWidget {
               child: Image.asset(
                 width: 53.w,
                 height: 40.h,
-                Assets.assetsImagesFruitTest,
+                cartItemEntity.productEntity.imageUrl!,
               ),
             ),
             horizontalSpace(17),
@@ -36,13 +37,16 @@ class CartProductItem extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('بطيخ', style: AppTextStyles.font13BlackBold),
+                      Text(
+                        cartItemEntity.productEntity.productName,
+                        style: AppTextStyles.font13BlackBold,
+                      ),
                       SvgPicture.asset(Assets.assetsSvgsTrash),
                     ],
                   ),
                   verticalSpace(2),
                   Text(
-                    '3 كم',
+                    '${cartItemEntity.productEntity.calorieSUnitAmount} كم',
                     style: AppTextStyles.font13GrayRegular.copyWith(
                       color: AppColors.lightOrange,
                     ),
@@ -59,7 +63,10 @@ class CartProductItem extends StatelessWidget {
                             icon: Icons.add,
                           ),
                           horizontalSpace(16),
-                          Text('3', style: AppTextStyles.font16BlackBold),
+                          Text(
+                            cartItemEntity.quantity.toString(),
+                            style: AppTextStyles.font16BlackBold,
+                          ),
                           horizontalSpace(16),
                           IncrementOrDecrementItem(
                             backgroungColor: AppColors.babyBlue,
@@ -69,7 +76,7 @@ class CartProductItem extends StatelessWidget {
                         ],
                       ),
                       Text(
-                        '60 جنيه ',
+                        '${cartItemEntity.productEntity.price} جنيه ',
                         style: AppTextStyles.font16BlackBold.copyWith(
                           color: AppColors.lightOrange,
                         ),

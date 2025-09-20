@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruit_hub/features/main/domain/bottom_nav_bar_entity.dart';
+import 'package:fruit_hub/features/main/domain/entities/bottom_nav_bar_entity.dart';
 import 'package:fruit_hub/features/main/presentation/views/widgets/bottom_navigation_bar/active_bootom_nav_item.dart';
 import 'package:fruit_hub/features/main/presentation/views/widgets/bottom_navigation_bar/inactive_bottom_nav_item.dart';
 

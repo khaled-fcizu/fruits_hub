@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruit_hub/core/widgets/custom_divider.dart';
+import 'package:fruit_hub/features/main/presentation/managers/cubit/cart_cubit.dart';
 import 'package:fruit_hub/features/main/presentation/views/widgets/cart_product_item.dart';
 
 class CartListView extends StatelessWidget {
@@ -8,13 +11,19 @@ class CartListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverList.separated(
       separatorBuilder: (context, index) {
-        return const Divider(color: Color(0xFFDCDEDE), thickness: 0.4);
+        return CustomDivider();
       },
       itemBuilder: (context, index) => Padding(
         padding: const EdgeInsets.only(left: 16, right: 16),
-        child: CartProductItem(),
+        child: CartProductItem(
+          cartItemEntity: context
+              .read<CartCubit>()
+              .cartEntity
+              .cartItemsList[index],
+        ),
       ),
-      itemCount: 3,
+      itemCount: context.read<CartCubit>().cartEntity.cartItemsList.length,
     );
   }
 }
+
