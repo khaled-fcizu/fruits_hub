@@ -1,4 +1,3 @@
-import 'package:fruit_hub/core/repos/product_repo.dart';
 import 'package:fruit_hub/core/repos/product_repo_impl.dart';
 import 'package:fruit_hub/core/service/firebase_auth_service.dart';
 import 'package:fruit_hub/core/service/firestore_service.dart';

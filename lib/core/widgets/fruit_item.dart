@@ -6,7 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fruit_hub/core/entities/product_entity.dart';
 import 'package:fruit_hub/core/theming/app_colors.dart';
 import 'package:fruit_hub/core/theming/app_text_styles.dart';
-import 'package:fruit_hub/features/main/presentation/managers/cubit/cart_cubit.dart';
+import 'package:fruit_hub/features/main/presentation/managers/cart_cubit/cart_cubit.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class FruitItem extends StatelessWidget {

@@ -5,18 +5,17 @@ class CartEntity {
   final List<CartItemEntity> cartItemsList;
 
   CartEntity({required this.cartItemsList});
-  CartItemEntity addProduct(ProductEntity  productEntity) {
-    for( var cartItem in cartItemsList) {
-      if(cartItem.productEntity == productEntity) {
-        cartItem.incrementQuantity();
-      }
-    }
-    return CartItemEntity(productEntity: productEntity, quantity: 1);
+  addItem(CartItemEntity cartItemEntity) {
+    cartItemsList.add(cartItemEntity);
+  }
+
+  removeItem(CartItemEntity cartItemEntity) {
+    cartItemsList.remove(cartItemEntity);
   }
 
   CartItemEntity getCartItem(ProductEntity productEntity) {
-    for( var cartItem in cartItemsList) {
-      if(cartItem.productEntity == productEntity) {
+    for (var cartItem in cartItemsList) {
+      if (cartItem.productEntity == productEntity) {
         return cartItem;
       }
     }
@@ -24,8 +23,8 @@ class CartEntity {
   }
 
   bool isExist(ProductEntity productEntity) {
-    for( var cartItem in cartItemsList) {
-      if(cartItem.productEntity == productEntity) {
+    for (var cartItem in cartItemsList) {
+      if (cartItem.productEntity == productEntity) {
         return true;
       }
     }

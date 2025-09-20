@@ -33,7 +33,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       child: Row(
         children: BottomNavBarEntity.bottomNavBarItems.asMap().entries.map((e) {
           int index = e.key;
-          BottomNavBarEntity item = e.value;
+          BottomNavBarEntity bottomNavBarEntity = e.value;
           return Expanded(
             flex: index == selectedInedex ? 3 : 2,
             child: GestureDetector(
@@ -45,7 +45,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
               },
               child: BottomNavItemOutput(
                 isActive: selectedInedex == index,
-                bottomNavBarEntity: item,
+                bottomNavBarEntity: bottomNavBarEntity,
               ),
             ),
           );

@@ -5,7 +5,7 @@ import 'package:fruit_hub/core/helpers/spacing_helper.dart';
 import 'package:fruit_hub/core/widgets/app_text_button.dart';
 import 'package:fruit_hub/core/widgets/build_app_bar.dart';
 import 'package:fruit_hub/core/widgets/custom_divider.dart';
-import 'package:fruit_hub/features/main/presentation/managers/cubit/cart_cubit.dart';
+import 'package:fruit_hub/features/main/presentation/managers/cart_cubit/cart_cubit.dart';
 import 'package:fruit_hub/features/main/presentation/views/widgets/bottom_navigation_bar/products_in_cart_text.dart';
 import 'package:fruit_hub/features/main/presentation/views/widgets/cart_list_view.dart';
 
@@ -33,7 +33,7 @@ class CartView extends StatelessWidget {
                 padding: EdgeInsetsGeometry.symmetric(horizontal: 16.w),
                 child:
                     context.read<CartCubit>().cartEntity.cartItemsList.isEmpty
-                    ? const SizedBox()
+                    ? const SizedBox.shrink()
                     : CustomDivider(),
               ),
             ),
@@ -43,7 +43,7 @@ class CartView extends StatelessWidget {
                 padding: EdgeInsetsGeometry.symmetric(horizontal: 16.w),
                 child:
                     context.read<CartCubit>().cartEntity.cartItemsList.isEmpty
-                    ? const SizedBox()
+                    ? const SizedBox.shrink()
                     : CustomDivider(),
               ),
             ),

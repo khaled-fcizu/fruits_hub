@@ -6,16 +6,20 @@ class IncrementOrDecrementItem extends StatelessWidget {
     super.key,
     required this.backgroungColor,
     required this.iconColor,
-    required this.icon,
+    required this.icon, this.onTap,
   });
   final Color backgroungColor, iconColor;
   final IconData icon;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(1),
-      decoration: BoxDecoration(color: backgroungColor, shape: BoxShape.circle),
-      child: Icon(icon, color: iconColor, size: 20.sp),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.all(1),
+        decoration: BoxDecoration(color: backgroungColor, shape: BoxShape.circle),
+        child: Icon(icon, color: iconColor, size: 20.sp),
+      ),
     );
   }
 }

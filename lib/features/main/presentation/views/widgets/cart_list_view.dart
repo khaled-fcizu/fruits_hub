@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/widgets/custom_divider.dart';
-import 'package:fruit_hub/features/main/presentation/managers/cubit/cart_cubit.dart';
+import 'package:fruit_hub/features/main/presentation/managers/cart_cubit/cart_cubit.dart';
 import 'package:fruit_hub/features/main/presentation/views/widgets/cart_product_item.dart';
 
 class CartListView extends StatelessWidget {
@@ -22,7 +22,7 @@ class CartListView extends StatelessWidget {
               .cartItemsList[index],
         ),
       ),
-      itemCount: context.read<CartCubit>().cartEntity.cartItemsList.length,
+      itemCount: context.watch<CartCubit>().cartEntity.cartItemsList.length,
     );
   }
 }
