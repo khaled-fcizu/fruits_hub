@@ -9,6 +9,11 @@ abstract class AppTextStyles {
     fontWeight: FontWeightHelper.semiBold,
     color: AppColors.gray,
   );
+  static TextStyle font13LighterGraySimiBold = TextStyle(
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    color: AppColors.lighterGray,
+  );
   static TextStyle font13BlackSemiBold = TextStyle(
     fontSize: 13.sp,
     fontWeight: FontWeightHelper.semiBold,
@@ -36,7 +41,7 @@ abstract class AppTextStyles {
   );
   static TextStyle font13MainGreenBold = TextStyle(
     fontSize: 13.sp,
-    fontWeight: FontWeightHelper.semiBold,
+    fontWeight: FontWeightHelper.bold,
     color: AppColors.mainGreen,
   );
   static TextStyle font13MainGreenRegular = TextStyle(
