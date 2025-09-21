@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/core/helpers/spacing_helper.dart';
-import 'package:fruit_hub/core/widgets/app_text_button.dart';
 import 'package:fruit_hub/core/widgets/build_app_bar.dart';
 import 'package:fruit_hub/core/widgets/custom_divider.dart';
 import 'package:fruit_hub/features/main/presentation/managers/cart_cubit/cart_cubit.dart';
 import 'package:fruit_hub/features/main/presentation/views/widgets/bottom_navigation_bar/products_in_cart_text.dart';
 import 'package:fruit_hub/features/main/presentation/views/widgets/cart_list_view.dart';
+import 'package:fruit_hub/features/main/presentation/views/widgets/custom_cart_cubit.dart';
 
 class CartView extends StatelessWidget {
   const CartView({super.key});
@@ -21,7 +21,12 @@ class CartView extends StatelessWidget {
             SliverToBoxAdapter(
               child: Column(
                 children: [
-                  buildAppBar(context, title: 'السلة', isRingVisible: false),
+                  buildAppBar(
+                    context,
+                    title: 'السلة',
+                    isRingVisible: false,
+                    isLeadingVisible: false,
+                  ),
                   verticalSpace(16),
                   ProductsInCartText(),
                   verticalSpace(24),
@@ -32,7 +37,7 @@ class CartView extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsetsGeometry.symmetric(horizontal: 16.w),
                 child:
-                    context.read<CartCubit>().cartEntity.cartItemsList.isEmpty
+                    context.watch<CartCubit>().cartEntity.cartItemsList.isEmpty
                     ? const SizedBox.shrink()
                     : CustomDivider(),
               ),
@@ -42,7 +47,7 @@ class CartView extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsetsGeometry.symmetric(horizontal: 16.w),
                 child:
-                    context.read<CartCubit>().cartEntity.cartItemsList.isEmpty
+                    context.watch<CartCubit>().cartEntity.cartItemsList.isEmpty
                     ? const SizedBox.shrink()
                     : CustomDivider(),
               ),
@@ -55,7 +60,7 @@ class CartView extends StatelessWidget {
           bottom: 70,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.w),
-            child: AppButton(onPressed: () {}, buttonText: 'الدفع  120جنيه'),
+            child: CustomCartButton(),
           ),
         ),
       ],
