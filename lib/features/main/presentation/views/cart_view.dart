@@ -7,7 +7,7 @@ import 'package:fruit_hub/core/widgets/custom_divider.dart';
 import 'package:fruit_hub/features/main/presentation/managers/cart_cubit/cart_cubit.dart';
 import 'package:fruit_hub/features/main/presentation/views/widgets/bottom_navigation_bar/products_in_cart_text.dart';
 import 'package:fruit_hub/features/main/presentation/views/widgets/cart_list_view.dart';
-import 'package:fruit_hub/features/main/presentation/views/widgets/custom_cart_cubit.dart';
+import 'package:fruit_hub/features/main/presentation/views/widgets/custom_cart_button.dart';
 
 class CartView extends StatelessWidget {
   const CartView({super.key});

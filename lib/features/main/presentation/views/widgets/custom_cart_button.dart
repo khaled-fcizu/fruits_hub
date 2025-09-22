@@ -15,7 +15,14 @@ class CustomCartButton extends StatelessWidget {
       builder: (context, state) {
         return AppButton(
           onPressed: () {
-            context.pushNamed(Routes.checkOutView);
+            if (context.read<CartCubit>().cartEntity.cartItemsList.isNotEmpty) {
+              context.pushNamed(
+                Routes.checkOutView,
+                arguments: context.read<CartCubit>().cartEntity,
+              );
+            }else{
+              context.showSnackBar('لا يوجد منتجات في السلة');
+            }
           },
           buttonText:
               'الدفع ${context.watch<CartCubit>().cartEntity.calculateTotalPrice()} جنيه',
@@ -24,3 +31,4 @@ class CustomCartButton extends StatelessWidget {
     );
   }
 }
+

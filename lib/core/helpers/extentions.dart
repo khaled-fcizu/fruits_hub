@@ -22,4 +22,10 @@ extension BuildContextExtention on BuildContext {
   }
 
   void pop() => Navigator.of(this).pop();
+
+  void showSnackBar(String s) {
+    ScaffoldMessenger.of(this).showSnackBar(
+      SnackBar(content: Text(s), duration: const Duration(seconds: 1)),
+    );
+  }
 }

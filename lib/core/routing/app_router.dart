@@ -8,6 +8,7 @@ import 'package:fruit_hub/features/auth/presentation/managers/signup_cubit/signu
 import 'package:fruit_hub/features/auth/presentation/views/login_view.dart';
 import 'package:fruit_hub/features/best_seller_fruits/presentation/views/best_seller_view.dart';
 import 'package:fruit_hub/features/check_out/presentation/views/chech_out_view.dart';
+import 'package:fruit_hub/features/main/domain/entities/cart_entity.dart';
 import 'package:fruit_hub/features/main/presentation/managers/products_cubit/products_cubit.dart';
 import 'package:fruit_hub/features/main/presentation/views/main_view.dart';
 import 'package:fruit_hub/features/onBoarding/ui/onboarding_view.dart';
@@ -24,7 +25,9 @@ abstract class AppRouter {
       case Routes.mainView:
         return MaterialPageRoute(builder: (_) => MainView());
       case Routes.checkOutView:
-        return MaterialPageRoute(builder: (_) => CheckOutView());
+        return MaterialPageRoute(builder: (_) => CheckOutView(
+          cartEntity: settings.arguments as CartEntity,
+        ));
       case Routes.bestSellerView:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(

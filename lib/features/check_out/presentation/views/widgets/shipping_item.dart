@@ -10,7 +10,8 @@ class ShippingItem extends StatelessWidget {
     required this.isSelected,
     required this.title,
     required this.subtitle,
-    required this.price,required this.onTap,
+    required this.price,
+    required this.onTap,
   });
   final bool isSelected;
   final String title, subtitle, price;
@@ -21,7 +22,12 @@ class ShippingItem extends StatelessWidget {
       onTap: onTap,
       child: AnimatedContainer(
         duration: Duration(milliseconds: 100),
-        padding: EdgeInsets.only(left: 13.w, right: 2.w, top: 16.h, bottom: 16.h),
+        padding: EdgeInsets.only(
+          left: 13.w,
+          right: 2.w,
+          top: 16.h,
+          bottom: 16.h,
+        ),
         decoration: BoxDecoration(
           borderRadius: isSelected ? BorderRadius.circular(4.r) : null,
           color: AppColors.babyBlue,
@@ -46,7 +52,8 @@ class ShippingItem extends StatelessWidget {
               ),
               horizontalSpace(10),
               Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+
                 children: [
                   Text(title, style: AppTextStyles.font13BlackSemiBold),
                   verticalSpace(6),
