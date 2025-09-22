@@ -15,10 +15,12 @@ AppBar buildAppBar(
     centerTitle: true,
     title: Text(title, style: AppTextStyles.font19BlackBold),
     actions: [
-     isRingVisible ? Padding(
-        padding: EdgeInsets.only(left: 16.w),
-        child: NotificationRing(),
-      ): const SizedBox.shrink(),
+      isRingVisible
+          ? Padding(
+              padding: EdgeInsets.only(left: 16.w),
+              child: NotificationRing(),
+            )
+          : const SizedBox.shrink(),
     ],
     leading: isLeadingVisible
         ? GestureDetector(
@@ -26,15 +28,8 @@ AppBar buildAppBar(
               Navigator.of(context).pop();
             },
             child: Padding(
-              padding: EdgeInsets.only(right: 16.w),
-              child: Container(
-                decoration: ShapeDecoration(
-                  shape: CircleBorder(
-                    side: BorderSide(color: Colors.grey.shade300, width: .7.w),
-                  ),
-                ),
-                child: Center(child: Icon(Icons.arrow_back_ios, size: 22)),
-              ),
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              child: Icon(Icons.arrow_back_ios, size: 22),
             ),
           )
         : SizedBox.shrink(),
