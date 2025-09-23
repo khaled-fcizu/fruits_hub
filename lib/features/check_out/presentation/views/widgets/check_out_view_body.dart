@@ -9,8 +9,8 @@ import 'package:fruit_hub/features/check_out/presentation/views/widgets/chech_ou
 import 'package:fruit_hub/features/check_out/presentation/views/widgets/check_out_page_view.dart';
 
 class CheckOutViewBody extends StatefulWidget {
-  const CheckOutViewBody({super.key});
-
+  const CheckOutViewBody({super.key, required this.currentIndex});
+  final ValueChanged<int> currentIndex;
   @override
   State<CheckOutViewBody> createState() => _CheckOutViewBodyState();
 }
@@ -23,6 +23,7 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
     pageController.addListener(() {
       setState(() {
         currentPageIndex = pageController.page!.toInt();
+        widget.currentIndex(currentPageIndex);
       });
     });
     super.initState();

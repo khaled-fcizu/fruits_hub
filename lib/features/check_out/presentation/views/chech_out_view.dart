@@ -6,20 +6,45 @@ import 'package:fruit_hub/features/check_out/presentation/views/widgets/check_ou
 import 'package:fruit_hub/features/main/domain/entities/cart_entity.dart';
 import 'package:provider/provider.dart';
 
-class CheckOutView extends StatelessWidget {
+class CheckOutView extends StatefulWidget {
   const CheckOutView({super.key, required this.cartEntity});
   final CartEntity cartEntity;
+
+  @override
+  State<CheckOutView> createState() => _CheckOutViewState();
+}
+
+class _CheckOutViewState extends State<CheckOutView> {
+  int currentIndex = 0 ;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context, title: 'الشحن', isRingVisible: false),
+      appBar: buildAppBar(
+        context,
+        title: getCheckOutAppBarTitle()[currentIndex],
+        isRingVisible: false,
+      ),
       body: Provider.value(
         value: OrderEntity(
-          cartEntity: cartEntity,
+          cartEntity: widget.cartEntity,
           adressPhaseEntity: AdressPhaseEntity(),
         ),
-        child: CheckOutViewBody(),
+        child: CheckOutViewBody(
+          currentIndex: (value) {
+            currentIndex = value;
+            setState(() {
+              
+            });
+          },
+        ),
       ),
     );
   }
+
+  List<String> getCheckOutAppBarTitle() => const [
+    'الشحن',
+    'العنوان',
+    'الدفع و المراجعه',
+  ];
 }
