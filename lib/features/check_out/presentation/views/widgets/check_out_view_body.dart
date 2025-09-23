@@ -35,6 +35,10 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
   }
 
   int currentPageIndex = 0;
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  ValueNotifier<AutovalidateMode> valueNotifier = ValueNotifier(
+    AutovalidateMode.disabled,
+  );
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -47,23 +51,55 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
               pageController: pageController,
               currentPageIndex: currentPageIndex,
             ),
-            Expanded(child: CheckOutPageView(pageController: pageController)),
+            Expanded(
+              child: CheckOutPageView(
+                valueNotifier: valueNotifier,
+                pageController: pageController,
+                formKey: formKey,
+              ),
+            ),
             AppButton(
               onPressed: () {
-                if (context.read<OrderEntity>().payWithCash != null) {
-                  pageController.nextPage(
-                    duration: const Duration(milliseconds: 150),
-                    curve: Curves.easeIn,
-                  );
-                } else {
-                  context.showSnackBar('من فضلك اختر طريقه الدفع');
+                if (currentPageIndex == 0) {
+                  _handleShippingSectionValidation(context);
+                } else if (currentPageIndex == 1) {
+                  _handleAddressSectionValidation(context);
                 }
               },
-              buttonText: 'التالي',
+              buttonText: getCheckOutButtonText()[currentPageIndex],
             ),
           ],
         ),
       ),
     );
   }
+
+  void _handleAddressSectionValidation(BuildContext context) {
+    valueNotifier.value = AutovalidateMode.always;
+    if (formKey.currentState!.validate()) {
+      pageController.nextPage(
+        duration: const Duration(milliseconds: 150),
+        curve: Curves.easeIn,
+      );
+    } else {
+      context.showSnackBar('من فضلك ادخل البيانات المطلوبه');
+    }
+  }
+
+  void _handleShippingSectionValidation(BuildContext context) {
+    if (context.read<OrderEntity>().payWithCash != null) {
+      pageController.nextPage(
+        duration: const Duration(milliseconds: 150),
+        curve: Curves.easeIn,
+      );
+    } else {
+      context.showSnackBar('من فضلك اختر طريقه الدفع');
+    }
+  }
 }
+
+List<String> getCheckOutButtonText() => const [
+  'التالي',
+  'التالي',
+  'الدفع عبر PayPal',
+];

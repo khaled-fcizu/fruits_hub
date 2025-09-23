@@ -3,6 +3,7 @@ import 'package:fruit_hub/core/entities/review_entity.dart';
 import 'package:fruit_hub/core/helpers/get_avg_rating.dart';
 import 'package:fruit_hub/core/models/review_model.dart';
 
+// ignore: must_be_immutable
 class ProductModel extends ProductEntity {
   ProductModel({
     required super.avgRating,

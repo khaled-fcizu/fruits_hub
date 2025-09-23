@@ -4,8 +4,16 @@ import 'package:fruit_hub/features/check_out/presentation/views/widgets/adress_s
 import 'package:fruit_hub/features/check_out/presentation/views/widgets/shipping_section.dart';
 
 class CheckOutPageView extends StatelessWidget {
-  const CheckOutPageView({super.key, required this.pageController});
+  const CheckOutPageView({
+    super.key,
+    required this.pageController,
+    required this.formKey,
+    required this.valueNotifier,
+  });
   final PageController pageController;
+  final GlobalKey<FormState> formKey;
+  final ValueNotifier<AutovalidateMode> valueNotifier;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,11 +28,10 @@ class CheckOutPageView extends StatelessWidget {
       ),
     );
   }
-}
 
-List<Widget> getCheckOutPages() => [
-  const ShippingSection(),
-  const AdressSection(),
-  const Placeholder(),
-  const Placeholder(),
-];
+  List<Widget> getCheckOutPages() => [
+    const ShippingSection(),
+    AdressSection(formKey: formKey, valueNotifier: valueNotifier),
+    const Placeholder(),
+  ];
+}
