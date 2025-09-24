@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/core/helpers/get_user_data.dart';
 import 'package:fruit_hub/core/widgets/build_app_bar.dart';
 import 'package:fruit_hub/features/check_out/domain/entities/adress_phase_entity.dart';
 import 'package:fruit_hub/features/check_out/domain/entities/order_entity.dart';
@@ -21,6 +22,7 @@ class _CheckOutViewState extends State<CheckOutView> {
   @override
   void initState() {
     orderEntity = OrderEntity(
+      uId: getUserData().uid,
       cartEntity: widget.cartEntity,
       adressPhaseEntity: AdressPhaseEntity(),
     );

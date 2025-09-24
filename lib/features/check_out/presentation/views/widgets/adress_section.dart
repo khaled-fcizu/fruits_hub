@@ -28,7 +28,7 @@ class AdressSection extends StatelessWidget {
                   context.read<OrderEntity>().adressPhaseEntity!.name = value;
                 },
                 hintText: 'الاسم كامل',
-                validator: validator(value),
+                validator: (value) => validator(value),
               ),
               verticalSpace(8),
               AppTextFormField(
@@ -36,7 +36,7 @@ class AdressSection extends StatelessWidget {
                   context.read<OrderEntity>().adressPhaseEntity!.emial = value;
                 },
                 hintText: 'البريد الإلكتروني',
-                validator: validator(value),
+                validator: (value) => validator(value),
               ),
               verticalSpace(8),
               AppTextFormField(
@@ -45,7 +45,7 @@ class AdressSection extends StatelessWidget {
                       value;
                 },
                 hintText: 'رقم الهاتف',
-                validator: validator(value),
+                validator: (value) => validator(value),
               ),
               verticalSpace(8),
               AppTextFormField(
@@ -53,7 +53,7 @@ class AdressSection extends StatelessWidget {
                   context.read<OrderEntity>().adressPhaseEntity!.adress = value;
                 },
                 hintText: 'العنوان',
-                validator: validator(value),
+                validator: (value) => validator(value),
               ),
               verticalSpace(8),
               AppTextFormField(
@@ -61,7 +61,7 @@ class AdressSection extends StatelessWidget {
                   context.read<OrderEntity>().adressPhaseEntity!.city = value;
                 },
                 hintText: 'المدينه',
-                validator: validator(value),
+                validator: (value) => validator(value),
               ),
               verticalSpace(8),
               AppTextFormField(
@@ -69,7 +69,7 @@ class AdressSection extends StatelessWidget {
                   context.read<OrderEntity>().adressPhaseEntity!.floor = value;
                 },
                 hintText: 'رقم الطابق , رقم الشقه ..',
-                validator: validator(value),
+                validator: (value) => validator(value),
               ),
             ],
           ),

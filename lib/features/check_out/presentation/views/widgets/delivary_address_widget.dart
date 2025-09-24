@@ -5,6 +5,8 @@ import 'package:fruit_hub/core/helpers/spacing_helper.dart';
 import 'package:fruit_hub/core/theming/app_colors.dart';
 import 'package:fruit_hub/core/theming/app_text_styles.dart';
 import 'package:fruit_hub/core/utils/app_assets.dart';
+import 'package:fruit_hub/features/check_out/domain/entities/order_entity.dart';
+import 'package:provider/provider.dart';
 
 class DelivaryAddressWidget extends StatelessWidget {
   const DelivaryAddressWidget({super.key});
@@ -38,7 +40,7 @@ class DelivaryAddressWidget extends StatelessWidget {
               SvgPicture.asset(Assets.assetsSvgsLocation),
               horizontalSpace(8),
               Text(
-                'شارع النيل، مبنى رقم ١٢٣',
+                context.read<OrderEntity>().adressPhaseEntity.toString(),
                 style: AppTextStyles.font16GrayRegular,
               ),
             ],

@@ -20,6 +20,7 @@ class UserModel extends UserEntitiy {
   toJson() {
     return {'email': email, 'uid': uid, 'name': name};
   }
+  UserEntitiy toEntity() => UserEntitiy(email: email, uid: uid, name: name);
 
   factory UserModel.fromEntity(UserEntitiy userEntitiy) {
     return UserModel(

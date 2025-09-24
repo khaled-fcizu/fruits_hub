@@ -14,4 +14,9 @@ class AdressPhaseEntity {
      this.adress,
      this.floor,
   });
+
+  @override
+  String toString() {
+    return '$city, $adress, $floor';
+  }
 }

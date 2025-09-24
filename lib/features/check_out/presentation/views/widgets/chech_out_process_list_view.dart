@@ -10,9 +10,13 @@ class ChechOutProcessListView extends StatelessWidget {
     super.key,
     required this.currentPageIndex,
     required this.pageController,
+    required this.formKey,
+    required this.valueNotifier,
   });
   final PageController pageController;
   final int currentPageIndex;
+  final GlobalKey<FormState> formKey;
+  final ValueNotifier<AutovalidateMode> valueNotifier;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -21,14 +25,18 @@ class ChechOutProcessListView extends StatelessWidget {
         (index) => Expanded(
           child: GestureDetector(
             onTap: () {
-              if (context.read<OrderEntity>().payWithCash != null) {
+              if (currentPageIndex == 0) {
+                _handleShippingSectionValidation(context);
+              } else if (currentPageIndex == 1) {
+                _handleAddressSectionValidation(context);
+              } 
+              
+              if (currentPageIndex > index) {
                 pageController.animateToPage(
                   index,
-                  duration: Duration(milliseconds: 150),
+                  duration: const Duration(milliseconds: 150),
                   curve: Curves.easeIn,
                 );
-              } else {
-                context.showSnackBar('من فضلك اختر طريقه الدفع');
               }
             },
             child: CheckOutItemOutput(
@@ -40,6 +48,29 @@ class ChechOutProcessListView extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _handleAddressSectionValidation(BuildContext context) {
+    if (formKey.currentState!.validate()) {
+      valueNotifier.value = AutovalidateMode.always;
+      pageController.nextPage(
+        duration: const Duration(milliseconds: 150),
+        curve: Curves.easeIn,
+      );
+    } else {
+      context.showSnackBar('من فضلك ادخل البيانات المطلوبه');
+    }
+  }
+
+  void _handleShippingSectionValidation(BuildContext context) {
+    if (context.read<OrderEntity>().payWithCash != null) {
+      pageController.nextPage(
+        duration: const Duration(milliseconds: 150),
+        curve: Curves.easeIn,
+      );
+    } else {
+      context.showSnackBar('من فضلك اختر طريقه الدفع');
+    }
   }
 }
 

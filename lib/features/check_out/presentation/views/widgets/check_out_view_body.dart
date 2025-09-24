@@ -37,9 +37,8 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
 
   int currentPageIndex = 0;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  ValueNotifier<AutovalidateMode> valueNotifier = ValueNotifier(
-    AutovalidateMode.disabled,
-  );
+  ValueNotifier<AutovalidateMode> valueNotifier =
+      ValueNotifier<AutovalidateMode>(AutovalidateMode.disabled);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -49,6 +48,8 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
           children: [
             verticalSpace(16),
             ChechOutProcessListView(
+              valueNotifier: valueNotifier,
+              formKey: formKey,
               pageController: pageController,
               currentPageIndex: currentPageIndex,
             ),
