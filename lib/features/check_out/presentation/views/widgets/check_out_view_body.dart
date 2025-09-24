@@ -76,8 +76,8 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
   }
 
   void _handleAddressSectionValidation(BuildContext context) {
-    valueNotifier.value = AutovalidateMode.always;
     if (formKey.currentState!.validate()) {
+      valueNotifier.value = AutovalidateMode.always;
       pageController.nextPage(
         duration: const Duration(milliseconds: 150),
         curve: Curves.easeIn,

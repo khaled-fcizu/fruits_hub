@@ -15,7 +15,17 @@ class CheckOutView extends StatefulWidget {
 }
 
 class _CheckOutViewState extends State<CheckOutView> {
-  int currentIndex = 0 ;
+  int currentIndex = 0;
+  late OrderEntity orderEntity;
+
+  @override
+  void initState() {
+    orderEntity = OrderEntity(
+      cartEntity: widget.cartEntity,
+      adressPhaseEntity: AdressPhaseEntity(),
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,16 +36,11 @@ class _CheckOutViewState extends State<CheckOutView> {
         isRingVisible: false,
       ),
       body: Provider.value(
-        value: OrderEntity(
-          cartEntity: widget.cartEntity,
-          adressPhaseEntity: AdressPhaseEntity(),
-        ),
+        value: orderEntity,
         child: CheckOutViewBody(
           currentIndex: (value) {
             currentIndex = value;
-            setState(() {
-              
-            });
+            setState(() {});
           },
         ),
       ),

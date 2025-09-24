@@ -74,6 +74,10 @@ class Assets {
   /// assets/svgs/inlined/user.svg
   static const String assetsSvgsInlinedUser = "assets/svgs/inlined/user.svg";
 
+  /// Assets for assetsSvgsLocation
+  /// assets/svgs/location.svg
+  static const String assetsSvgsLocation = "assets/svgs/location.svg";
+
   /// Assets for assetsSvgsNotificationRing
   /// assets/svgs/notification_ring.svg
   static const String assetsSvgsNotificationRing = "assets/svgs/notification_ring.svg";

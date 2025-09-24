@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/helpers/spacing_helper.dart';
 import 'package:fruit_hub/core/widgets/app_text_form_field.dart';
+import 'package:fruit_hub/features/check_out/domain/entities/order_entity.dart';
+import 'package:provider/provider.dart';
 
 class AdressSection extends StatelessWidget {
   const AdressSection({
@@ -22,68 +24,64 @@ class AdressSection extends StatelessWidget {
             children: [
               verticalSpace(24),
               AppTextFormField(
+                onChanged: (value) {
+                  context.read<OrderEntity>().adressPhaseEntity!.name = value;
+                },
                 hintText: 'الاسم كامل',
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'يرجى إدخال هذا الحقل للمتابعة';
-                  }
-                  return null;
-                },
+                validator: validator(value),
               ),
               verticalSpace(8),
               AppTextFormField(
+                onChanged: (value) {
+                  context.read<OrderEntity>().adressPhaseEntity!.emial = value;
+                },
                 hintText: 'البريد الإلكتروني',
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'يرجى إدخال هذا الحقل للمتابعة';
-                  }
-                  return null;
-                },
+                validator: validator(value),
               ),
               verticalSpace(8),
               AppTextFormField(
+                onChanged: (value) {
+                  context.read<OrderEntity>().adressPhaseEntity!.phoneNumber =
+                      value;
+                },
                 hintText: 'رقم الهاتف',
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'يرجى إدخال هذا الحقل للمتابعة';
-                  }
-                  return null;
-                },
+                validator: validator(value),
               ),
               verticalSpace(8),
               AppTextFormField(
+                onChanged: (value) {
+                  context.read<OrderEntity>().adressPhaseEntity!.adress = value;
+                },
                 hintText: 'العنوان',
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'يرجى إدخال هذا الحقل للمتابعة';
-                  }
-                  return null;
-                },
+                validator: validator(value),
               ),
               verticalSpace(8),
               AppTextFormField(
+                onChanged: (value) {
+                  context.read<OrderEntity>().adressPhaseEntity!.city = value;
+                },
                 hintText: 'المدينه',
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'يرجى إدخال هذا الحقل للمتابعة';
-                  }
-                  return null;
-                },
+                validator: validator(value),
               ),
               verticalSpace(8),
               AppTextFormField(
-                hintText: 'رقم الطابق , رقم الشقه ..',
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'يرجى إدخال هذا الحقل للمتابعة';
-                  }
-                  return null;
+                onChanged: (value) {
+                  context.read<OrderEntity>().adressPhaseEntity!.floor = value;
                 },
+                hintText: 'رقم الطابق , رقم الشقه ..',
+                validator: validator(value),
               ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  validator(value) {
+    if (value == null || value.isEmpty) {
+      return 'يرجى إدخال هذا الحقل للمتابعة';
+    }
+    return null;
   }
 }
