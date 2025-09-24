@@ -1,18 +1,18 @@
-class AdressPhaseEntity {
-   String? name;
-   String? emial;
-   String? phoneNumber;
-   String? city;
-   String? adress;
-   String? floor;
+class ShippingAdressEntity {
+  String? name;
+  String? emial;
+  String? phoneNumber;
+  String? city;
+  String? adress;
+  String? floor;
 
-  AdressPhaseEntity({
-     this.name,
-     this.emial,
-     this.phoneNumber,
-     this.city,
-     this.adress,
-     this.floor,
+  ShippingAdressEntity({
+    this.name,
+    this.emial,
+    this.phoneNumber,
+    this.city,
+    this.adress,
+    this.floor,
   });
 
   @override

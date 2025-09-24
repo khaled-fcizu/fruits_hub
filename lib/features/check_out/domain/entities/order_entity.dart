@@ -5,13 +5,11 @@ class OrderEntity {
   final String uId;
   final CartEntity cartEntity;
   bool? payWithCash;
-  final AdressPhaseEntity? adressPhaseEntity;
-  OrderEntity( {
-   required this.uId,
+  final ShippingAdressEntity? adressPhaseEntity;
+  OrderEntity({
+    required this.uId,
     required this.cartEntity,
     this.payWithCash,
     this.adressPhaseEntity,
   });
-
-  
 }

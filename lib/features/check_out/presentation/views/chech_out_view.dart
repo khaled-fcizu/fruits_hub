@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/helpers/get_user_data.dart';
 import 'package:fruit_hub/core/widgets/build_app_bar.dart';
@@ -21,10 +23,11 @@ class _CheckOutViewState extends State<CheckOutView> {
 
   @override
   void initState() {
+    log(getUserData().uid);
     orderEntity = OrderEntity(
       uId: getUserData().uid,
       cartEntity: widget.cartEntity,
-      adressPhaseEntity: AdressPhaseEntity(),
+      adressPhaseEntity: ShippingAdressEntity(),
     );
     super.initState();
   }

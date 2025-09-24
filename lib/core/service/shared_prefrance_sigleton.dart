@@ -18,7 +18,7 @@ class SharedPrefranceSigleton {
     await _instance.setString(key, value);
   }
 
-  static getString({required String key}) async {
-    await _instance.getString(key);
+  static getString({required String key})  {
+    return _instance.getString(key) ?? '';
   }
 }
