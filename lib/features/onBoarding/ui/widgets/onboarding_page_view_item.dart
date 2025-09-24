@@ -42,11 +42,15 @@ class OnBoardingPageViewItem extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(16),
                 child: GestureDetector(
-                  onTap: (){
-                    SharedPrefranceSigleton.setBool(key: isOnBoardingViewSeen, value: true);
+                  onTap: () {
+                    SharedPrefranceSigleton.setBool(
+                      key: isOnBoardingViewSeen,
+                      value: true,
+                    );
                     context.pushNamed(Routes.loginView);
                   },
-                  child: Text('تخط', style: AppTextStyles.font13GrayRegular,)),
+                  child: Text('تخط', style: AppTextStyles.font13GrayRegular),
+                ),
               ),
             ),
           ],

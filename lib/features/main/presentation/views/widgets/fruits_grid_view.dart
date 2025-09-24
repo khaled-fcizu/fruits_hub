@@ -10,7 +10,7 @@ class FruitsGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverGrid(
       delegate: SliverChildBuilderDelegate(
-        (context, index) => FruitItem(productEntity: products[index],),
+        (context, index) => FruitItem(productEntity: products[index]),
         childCount: products.length,
       ),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

@@ -37,10 +37,13 @@ class ProductModel extends ProductEntity {
   };
 
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
-    avgRating: getAvgRating(json['reviews']?? [])  ,
+    avgRating: getAvgRating(json['reviews'] ?? []),
     sellingCount: json['sellingCount'],
     reviews: json['reviews'] != null
-        ? (json['reviews'] as List).map((e) => ReviewModel.fromJson(e as Map<String, dynamic>)).toList().cast<ReviewEntity>() 
+        ? (json['reviews'] as List)
+              .map((e) => ReviewModel.fromJson(e as Map<String, dynamic>))
+              .toList()
+              .cast<ReviewEntity>()
         : <ReviewModel>[],
     isFeatured: json['isFeatured'],
     productName: json['productName'],

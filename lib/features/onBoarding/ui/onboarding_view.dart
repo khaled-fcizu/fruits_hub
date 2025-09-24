@@ -43,12 +43,13 @@ class _OnBoardingViewState extends State<OnBoardingView> {
       body: SafeArea(
         child: Column(
           children: [
-            Expanded(child: OnBoardingPageView(
-              pageController: pageController)),
+            Expanded(child: OnBoardingPageView(pageController: pageController)),
             DotsIndicator(
               dotsCount: 2,
               decorator: DotsDecorator(
-                color: currentPage == 1 ? AppColors.mainGreen : AppColors.mainGreen.withOpacity(0.5),
+                color: currentPage == 1
+                    ? AppColors.mainGreen
+                    : AppColors.mainGreen.withOpacity(0.5),
                 activeColor: AppColors.mainGreen,
               ),
             ),
@@ -60,10 +61,16 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               maintainState: true,
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: AppButton(onPressed: () {
-                   SharedPrefranceSigleton.setBool(key: isOnBoardingViewSeen, value: true);
+                child: AppButton(
+                  onPressed: () {
+                    SharedPrefranceSigleton.setBool(
+                      key: isOnBoardingViewSeen,
+                      value: true,
+                    );
                     context.pushNamed(Routes.loginView);
-                }, buttonText: 'ابدأ الان'),
+                  },
+                  buttonText: 'ابدأ الان',
+                ),
               ),
             ),
             verticalSpace(20),

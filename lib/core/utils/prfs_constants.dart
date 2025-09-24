@@ -1,4 +1,3 @@
-abstract class PrefsConstants{
+abstract class PrefsConstants {
   static const String saveUserData = 'saveUserData';
-  
 }

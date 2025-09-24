@@ -6,7 +6,8 @@ class IncrementOrDecrementItem extends StatelessWidget {
     super.key,
     required this.backgroungColor,
     required this.iconColor,
-    required this.icon, this.onTap,
+    required this.icon,
+    this.onTap,
   });
   final Color backgroungColor, iconColor;
   final IconData icon;
@@ -17,7 +18,10 @@ class IncrementOrDecrementItem extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: EdgeInsets.all(1),
-        decoration: BoxDecoration(color: backgroungColor, shape: BoxShape.circle),
+        decoration: BoxDecoration(
+          color: backgroungColor,
+          shape: BoxShape.circle,
+        ),
         child: Icon(icon, color: iconColor, size: 20.sp),
       ),
     );

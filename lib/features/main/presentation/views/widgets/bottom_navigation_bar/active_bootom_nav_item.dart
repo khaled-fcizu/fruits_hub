@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart' show SvgPicture;
 import 'package:fruit_hub/core/theming/app_text_styles.dart';
 
-import '../../../../../../core/helpers/spacing_helper.dart' show horizontalSpace;
+import '../../../../../../core/helpers/spacing_helper.dart'
+    show horizontalSpace;
 
 class ActiveBottomNavItem extends StatelessWidget {
   const ActiveBottomNavItem({

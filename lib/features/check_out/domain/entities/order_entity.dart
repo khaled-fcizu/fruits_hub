@@ -3,6 +3,7 @@ import 'package:fruit_hub/features/main/domain/entities/cart_entity.dart';
 
 class OrderEntity {
   final String uId;
+
   final CartEntity cartEntity;
   bool? payWithCash;
   final ShippingAddressEntity? shippingAdressEntity;
@@ -12,4 +13,24 @@ class OrderEntity {
     this.payWithCash,
     this.shippingAdressEntity,
   });
+
+  calculateShippingCost() {
+    if (payWithCash!) {
+      return 20;
+    } else {
+      return 0;
+    }
+  }
+
+  calculateShippingDiscount() {
+    return 0;
+  }
+
+  calculateTotalPriceAfterDiscountAndShipping() {
+    return cartEntity.calculateTotalPrice() +
+        calculateShippingCost() -
+        calculateShippingDiscount();
+  }
+
+ 
 }

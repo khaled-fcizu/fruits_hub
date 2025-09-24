@@ -21,7 +21,7 @@ class MainViewBodyBlocListener extends StatelessWidget {
               duration: const Duration(seconds: 1),
             ),
           );
-        }else if(state is CartProductRemoved){
+        } else if (state is CartProductRemoved) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text('product removed from cart'),

@@ -9,8 +9,10 @@ class AlreadyHaveAccount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text.rich(TextSpan(children: [
-       TextSpan(
+    return Text.rich(
+      TextSpan(
+        children: [
+          TextSpan(
             text: 'تمتلك حساب بالفعل؟',
             style: AppTextStyles.font16GraySimiBold,
           ),
@@ -24,6 +26,8 @@ class AlreadyHaveAccount extends StatelessWidget {
               color: AppColors.mainGreen,
             ),
           ),
-    ]));
+        ],
+      ),
+    );
   }
 }

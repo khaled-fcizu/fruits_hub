@@ -3,24 +3,18 @@ import 'package:fruit_hub/core/errors/failure.dart';
 import 'package:fruit_hub/features/auth/domain/entities/user_entitiy.dart';
 
 abstract class AuthRepo {
-  Future<Either<UserEntitiy,Failure> > createUserWithEmailAndPassword({
+  Future<Either<UserEntitiy, Failure>> createUserWithEmailAndPassword({
     required String email,
     required String password,
     required String name,
   });
-  Future<Either<UserEntitiy,Failure> > loginWithEmailAndPassword({
+  Future<Either<UserEntitiy, Failure>> loginWithEmailAndPassword({
     required String email,
     required String password,
   });
-  Future<Either<UserEntitiy,Failure> > signInWithGoogle();
-  Future<Either<UserEntitiy,Failure> > signInWithFacebook();
-  Future<void> addUserData({
-    required UserEntitiy userEntity, 
-  });
-  Future<void> saveUserData({
-    required UserEntitiy userEntity, 
-  });
-  Future<UserEntitiy> getUserData({
-    required String uid,
-  });
+  Future<Either<UserEntitiy, Failure>> signInWithGoogle();
+  Future<Either<UserEntitiy, Failure>> signInWithFacebook();
+  Future<void> addUserData({required UserEntitiy userEntity});
+  Future<void> saveUserData({required UserEntitiy userEntity});
+  Future<UserEntitiy> getUserData({required String uid});
 }

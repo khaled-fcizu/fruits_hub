@@ -12,7 +12,7 @@ class CartEntity {
   removeItem(CartItemEntity cartItemEntity) {
     cartItemsList.remove(cartItemEntity);
   }
-  
+
   double calculateTotalPrice() {
     double totalPrice = 0;
     for (var cartItem in cartItemsList) {
@@ -20,6 +20,7 @@ class CartEntity {
     }
     return totalPrice;
   }
+
   CartItemEntity getCartItem(ProductEntity productEntity) {
     for (var cartItem in cartItemsList) {
       if (cartItem.productEntity == productEntity) {

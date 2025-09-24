@@ -20,7 +20,7 @@ class CustomCartButton extends StatelessWidget {
                 Routes.checkOutView,
                 arguments: context.read<CartCubit>().cartEntity,
               );
-            }else{
+            } else {
               context.showSnackBar('لا يوجد منتجات في السلة');
             }
           },
@@ -31,4 +31,3 @@ class CustomCartButton extends StatelessWidget {
     );
   }
 }
-

@@ -39,4 +39,3 @@ class HomeAppBar extends StatelessWidget {
     );
   }
 }
-

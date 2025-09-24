@@ -13,17 +13,14 @@ class OurProductsAndFilterIcon extends StatelessWidget {
       children: [
         Text('منتجاتنا', style: AppTextStyles.font16BlackBold),
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5.5
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5.5),
           decoration: BoxDecoration(
-            
             color: Colors.white,
             borderRadius: BorderRadius.circular(4),
-            border: BoxBorder.all(
-              width: 1,
-              color: Colors.grey.shade300,)
+            border: BoxBorder.all(width: 1, color: Colors.grey.shade300),
           ),
-          child: SvgPicture.asset(Assets.assetsSvgsFilterSwap)),
+          child: SvgPicture.asset(Assets.assetsSvgsFilterSwap),
+        ),
       ],
     );
   }

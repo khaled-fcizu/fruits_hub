@@ -3,6 +3,4 @@ class UserEntitiy {
   final String uid;
   final String name;
   UserEntitiy({required this.email, required this.uid, required this.name});
-
-
 }

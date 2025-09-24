@@ -5,10 +5,11 @@ import 'package:fruit_hub/features/auth/presentation/views/widgets/custom_chick_
 
 class CondationsAndTermsChick extends StatefulWidget {
   const CondationsAndTermsChick({super.key, required this.onChicked});
-    final ValueChanged<bool> onChicked;
+  final ValueChanged<bool> onChicked;
 
   @override
-  State<CondationsAndTermsChick> createState() => _CondationsAndTermsChickState();
+  State<CondationsAndTermsChick> createState() =>
+      _CondationsAndTermsChickState();
 }
 
 class _CondationsAndTermsChickState extends State<CondationsAndTermsChick> {
@@ -18,13 +19,14 @@ class _CondationsAndTermsChickState extends State<CondationsAndTermsChick> {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomChickBox(isChicked: isChicked, onChicked: (value) { 
-          isChicked = value;
-          widget.onChicked(value);
-          setState(() {
-            
-          });
-         },),
+        CustomChickBox(
+          isChicked: isChicked,
+          onChicked: (value) {
+            isChicked = value;
+            widget.onChicked(value);
+            setState(() {});
+          },
+        ),
         horizontalSpace(16),
         Expanded(
           child: Text.rich(

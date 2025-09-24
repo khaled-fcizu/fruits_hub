@@ -8,7 +8,7 @@ class BottomNavBarEntity {
     required this.inactiveImage,
     required this.name,
   });
-static  List<BottomNavBarEntity> get bottomNavBarItems => [
+  static List<BottomNavBarEntity> get bottomNavBarItems => [
     BottomNavBarEntity(
       activeImage: Assets.assetsSvgsInlinedHome,
       inactiveImage: Assets.assetsSvgsOutlinedHome,

@@ -29,8 +29,8 @@ class ChechOutProcessListView extends StatelessWidget {
                 _handleShippingSectionValidation(context);
               } else if (currentPageIndex == 1) {
                 _handleAddressSectionValidation(context);
-              } 
-              
+              }
+
               if (currentPageIndex > index) {
                 pageController.animateToPage(
                   index,

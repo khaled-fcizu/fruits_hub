@@ -8,7 +8,7 @@ import 'package:fruit_hub/core/utils/app_assets.dart';
 
 class ActiveCheckOutItem extends StatelessWidget {
   const ActiveCheckOutItem({super.key, required this.text});
- final String text;
+  final String text;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -19,10 +19,7 @@ class ActiveCheckOutItem extends StatelessWidget {
           child: SvgPicture.asset(Assets.assetsSvgsTrue),
         ),
         horizontalSpace(4),
-        Text(
-          text,
-          style: AppTextStyles.font13GraySimiBold
-        ),
+        Text(text, style: AppTextStyles.font13GraySimiBold),
       ],
     );
   }

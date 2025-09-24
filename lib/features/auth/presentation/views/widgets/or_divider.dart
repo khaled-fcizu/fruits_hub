@@ -9,11 +9,11 @@ class OrDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(child: Divider(color: Color(0xFFDCDEDE),)),
+        Expanded(child: Divider(color: Color(0xFFDCDEDE))),
         horizontalSpace(18),
-        Text('أو', style: AppTextStyles.font16BlackSimiBold,),
+        Text('أو', style: AppTextStyles.font16BlackSimiBold),
         horizontalSpace(18),
-        Expanded(child: Divider(color: Color(0xFFDCDEDE),)),
+        Expanded(child: Divider(color: Color(0xFFDCDEDE))),
       ],
     );
   }

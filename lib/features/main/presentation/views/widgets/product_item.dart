@@ -25,10 +25,7 @@ class ProductItem extends StatelessWidget {
           ),
         ),
         verticalSpace(2),
-        Text(
-          'افوكادو',
-          style: AppTextStyles.font13BlackSemiBold,
-        ),
+        Text('افوكادو', style: AppTextStyles.font13BlackSemiBold),
       ],
     );
   }
