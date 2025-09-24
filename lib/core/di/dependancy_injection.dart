@@ -1,4 +1,5 @@
-import 'package:fruit_hub/core/repos/product_repo_impl.dart';
+import 'package:fruit_hub/core/repos/order_repo/order_repo_impl.dart';
+import 'package:fruit_hub/core/repos/product_repo/product_repo_impl.dart';
 import 'package:fruit_hub/core/service/firebase_auth_service.dart';
 import 'package:fruit_hub/core/service/firestore_service.dart';
 import 'package:fruit_hub/features/auth/data/repos/auth_repo_impl.dart';
@@ -19,6 +20,12 @@ void setupGetIt() {
   getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt<AuthRepoImpl>()));
 
   //main view
-  getIt.registerLazySingleton<ProductRepoImpl>(()=> ProductRepoImpl(getIt<FirestoreService>()));
+  getIt.registerLazySingleton<ProductRepoImpl>(
+    () => ProductRepoImpl(getIt<FirestoreService>()),
+  );
 
+  //checkout
+  getIt.registerLazySingleton<OrderRepoImpl>(
+    () => OrderRepoImpl(getIt<FirestoreService>()),
+  );
 }

@@ -5,6 +5,7 @@ import 'package:fruit_hub/core/helpers/get_user_data.dart';
 import 'package:fruit_hub/core/widgets/build_app_bar.dart';
 import 'package:fruit_hub/features/check_out/domain/entities/shipping_address_entity.dart';
 import 'package:fruit_hub/features/check_out/domain/entities/order_entity.dart';
+import 'package:fruit_hub/features/check_out/presentation/views/widgets/check_out_bloc_builder.dart';
 import 'package:fruit_hub/features/check_out/presentation/views/widgets/check_out_view_body.dart';
 import 'package:fruit_hub/features/main/domain/entities/cart_entity.dart';
 import 'package:provider/provider.dart';
@@ -42,11 +43,13 @@ class _CheckOutViewState extends State<CheckOutView> {
       ),
       body: Provider.value(
         value: orderEntity,
-        child: CheckOutViewBody(
-          currentIndex: (value) {
-            currentIndex = value;
-            setState(() {});
-          },
+        child: CheckOutBlocBuilder(
+          child: CheckOutViewBody(
+            currentIndex: (value) {
+              currentIndex = value;
+              setState(() {});
+            },
+          ),
         ),
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/di/dependancy_injection.dart';
-import 'package:fruit_hub/core/repos/product_repo_impl.dart';
+import 'package:fruit_hub/core/repos/product_repo/product_repo_impl.dart';
 import 'package:fruit_hub/features/main/presentation/managers/cart_item_cubit/cart_item_cubit.dart';
 import 'package:fruit_hub/features/main/presentation/managers/products_cubit/products_cubit.dart';
 import 'package:fruit_hub/features/main/presentation/views/cart_view.dart';

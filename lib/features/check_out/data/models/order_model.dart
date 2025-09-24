@@ -18,7 +18,7 @@ class OrderModel {
     required this.orderProductModel,
   });
 
-  factory OrderModel.formEntity(OrderEntity orderEntity) => OrderModel(
+  factory OrderModel.fromEntity(OrderEntity orderEntity) => OrderModel(
     totalPrice: orderEntity.cartEntity.calculateTotalPrice(),
     uId: orderEntity.uId,
     shippingAdressModel: ShippingAddressModel.fromEntity(

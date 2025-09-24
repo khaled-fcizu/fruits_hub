@@ -5,6 +5,7 @@ import 'package:fruit_hub/core/helpers/extentions.dart';
 import 'package:fruit_hub/core/helpers/spacing_helper.dart';
 import 'package:fruit_hub/core/widgets/app_text_button.dart';
 import 'package:fruit_hub/features/check_out/domain/entities/order_entity.dart';
+import 'package:fruit_hub/features/check_out/presentation/views/managers/cubit/add_order_cubit.dart';
 import 'package:fruit_hub/features/check_out/presentation/views/widgets/chech_out_process_list_view.dart';
 import 'package:fruit_hub/features/check_out/presentation/views/widgets/check_out_page_view.dart';
 
@@ -66,6 +67,11 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
                   _handleShippingSectionValidation(context);
                 } else if (currentPageIndex == 1) {
                   _handleAddressSectionValidation(context);
+                } else {
+                  var orderEntity = context.read<OrderEntity>();
+                  context.read<AddOrderCubit>().emitOrderStates(
+                    orderEntity: orderEntity,
+                  );
                 }
               },
               buttonText: getCheckOutButtonText()[currentPageIndex],
