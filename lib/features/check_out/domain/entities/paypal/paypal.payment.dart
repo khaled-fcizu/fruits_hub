@@ -1,3 +1,5 @@
+import 'package:fruit_hub/features/check_out/domain/entities/order_entity.dart';
+
 import 'amount.payment.dart';
 import 'item_list.payment.dart';
 
@@ -14,10 +16,10 @@ class PaypalPaymentEntity {
     'item_list': itemList?.toJson(),
   };
 
-  factory PaypalPaymentEntity.fromEntity(PaypalPaymentEntity entity) =>
+  factory PaypalPaymentEntity.fromEntity(OrderEntity orderEntity) =>
       PaypalPaymentEntity(
-        amount: entity.amount,
-        description: entity.description,
-        itemList: entity.itemList,
+        amount: Amount.fromEntity(orderEntity),
+        description: 'payment description',
+        itemList: ItemList.fromEntity(orderEntity.cartEntity),
       );
 }
