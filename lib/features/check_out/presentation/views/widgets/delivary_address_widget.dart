@@ -40,7 +40,7 @@ class DelivaryAddressWidget extends StatelessWidget {
               SvgPicture.asset(Assets.assetsSvgsLocation),
               horizontalSpace(8),
               Text(
-                context.read<OrderEntity>().adressPhaseEntity.toString(),
+                context.read<OrderEntity>().shippingAdressEntity.toString(),
                 style: AppTextStyles.font16GrayRegular,
               ),
             ],

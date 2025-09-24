@@ -1,14 +1,14 @@
-class ShippingAdressEntity {
+class ShippingAddressEntity {
   String? name;
-  String? emial;
+  String? email;
   String? phoneNumber;
   String? city;
   String? adress;
   String? floor;
 
-  ShippingAdressEntity({
+  ShippingAddressEntity({
     this.name,
-    this.emial,
+    this.email,
     this.phoneNumber,
     this.city,
     this.adress,

@@ -25,7 +25,8 @@ class AdressSection extends StatelessWidget {
               verticalSpace(24),
               AppTextFormField(
                 onChanged: (value) {
-                  context.read<OrderEntity>().adressPhaseEntity!.name = value;
+                  context.read<OrderEntity>().shippingAdressEntity!.name =
+                      value;
                 },
                 hintText: 'الاسم كامل',
                 validator: (value) => validator(value),
@@ -33,7 +34,8 @@ class AdressSection extends StatelessWidget {
               verticalSpace(8),
               AppTextFormField(
                 onChanged: (value) {
-                  context.read<OrderEntity>().adressPhaseEntity!.emial = value;
+                  context.read<OrderEntity>().shippingAdressEntity!.email =
+                      value;
                 },
                 hintText: 'البريد الإلكتروني',
                 validator: (value) => validator(value),
@@ -41,7 +43,10 @@ class AdressSection extends StatelessWidget {
               verticalSpace(8),
               AppTextFormField(
                 onChanged: (value) {
-                  context.read<OrderEntity>().adressPhaseEntity!.phoneNumber =
+                  context
+                          .read<OrderEntity>()
+                          .shippingAdressEntity!
+                          .phoneNumber =
                       value;
                 },
                 hintText: 'رقم الهاتف',
@@ -50,7 +55,8 @@ class AdressSection extends StatelessWidget {
               verticalSpace(8),
               AppTextFormField(
                 onChanged: (value) {
-                  context.read<OrderEntity>().adressPhaseEntity!.adress = value;
+                  context.read<OrderEntity>().shippingAdressEntity!.adress =
+                      value;
                 },
                 hintText: 'العنوان',
                 validator: (value) => validator(value),
@@ -58,7 +64,8 @@ class AdressSection extends StatelessWidget {
               verticalSpace(8),
               AppTextFormField(
                 onChanged: (value) {
-                  context.read<OrderEntity>().adressPhaseEntity!.city = value;
+                  context.read<OrderEntity>().shippingAdressEntity!.city =
+                      value;
                 },
                 hintText: 'المدينه',
                 validator: (value) => validator(value),
@@ -66,7 +73,8 @@ class AdressSection extends StatelessWidget {
               verticalSpace(8),
               AppTextFormField(
                 onChanged: (value) {
-                  context.read<OrderEntity>().adressPhaseEntity!.floor = value;
+                  context.read<OrderEntity>().shippingAdressEntity!.floor =
+                      value;
                 },
                 hintText: 'رقم الطابق , رقم الشقه ..',
                 validator: (value) => validator(value),
