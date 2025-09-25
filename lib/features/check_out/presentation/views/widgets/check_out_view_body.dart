@@ -1,10 +1,15 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/core/helpers/extentions.dart';
 import 'package:fruit_hub/core/helpers/spacing_helper.dart';
+import 'package:fruit_hub/core/utils/app_keys.dart';
 import 'package:fruit_hub/core/widgets/app_text_button.dart';
 import 'package:fruit_hub/features/check_out/domain/entities/order_entity.dart';
+import 'package:fruit_hub/features/check_out/domain/entities/paypal/paypal.payment.dart';
 import 'package:fruit_hub/features/check_out/presentation/views/managers/cubit/add_order_cubit.dart';
 import 'package:fruit_hub/features/check_out/presentation/views/widgets/chech_out_process_list_view.dart';
 import 'package:fruit_hub/features/check_out/presentation/views/widgets/check_out_page_view.dart';
@@ -68,10 +73,7 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
                 } else if (currentPageIndex == 1) {
                   _handleAddressSectionValidation(context);
                 } else {
-                  var orderEntity = context.read<OrderEntity>();
-                  context.read<AddOrderCubit>().emitOrderStates(
-                    orderEntity: orderEntity,
-                  );
+                  _handlePayPalPaymant(context);
                 }
               },
               buttonText: getCheckOutButtonText()[currentPageIndex],
@@ -103,6 +105,36 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
     } else {
       context.showSnackBar('من فضلك اختر طريقه الدفع');
     }
+  }
+
+  void _handlePayPalPaymant(BuildContext context) {
+    var orderEntity = context.read<OrderEntity>();
+    PaypalPaymentEntity paypalPaymentEntity = PaypalPaymentEntity.fromEntity(
+      orderEntity,
+    );
+    var addOrderCubit = context.read<AddOrderCubit>();
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (BuildContext context) => PaypalCheckoutView(
+          sandboxMode: true,
+          clientId: paypalClintId,
+          secretKey: paypalSecretKey,
+          transactions: [paypalPaymentEntity.toJson()],
+          note: "Contact us for any questions on your order.",
+          onSuccess: (Map params) async {
+            context.pop();
+            addOrderCubit.emitOrderStates(orderEntity: orderEntity);
+          },
+          onError: (error) {
+            log("onError: $error");
+            Navigator.pop(context);
+          },
+          onCancel: () {
+            log('cancelled:');
+          },
+        ),
+      ),
+    );
   }
 }
 

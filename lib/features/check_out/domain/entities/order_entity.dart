@@ -10,7 +10,7 @@ class OrderEntity {
   OrderEntity({
     required this.uId,
     required this.cartEntity,
-    this.payWithCash,
+    this.payWithCash = false,
     this.shippingAdressEntity,
   });
 
