@@ -7,11 +7,12 @@ class DetailsEntity {
 
   DetailsEntity({this.subtotal, this.shipping, this.shippingDiscount});
 
-  factory DetailsEntity.fromEntity(OrderEntity orderEntity) => DetailsEntity(
-    subtotal:  orderEntity.cartEntity.calculateTotalPrice().toString() ,
-    shipping: orderEntity.calculateShippingCost().toString(),
-    shippingDiscount: orderEntity.calculateShippingDiscount(),
-  );
+  factory DetailsEntity.fromEntity(OrderInputEntity orderEntity) =>
+      DetailsEntity(
+        subtotal: orderEntity.cartEntity.calculateTotalPrice().toString(),
+        shipping: orderEntity.calculateShippingCost().toString(),
+        shippingDiscount: orderEntity.calculateShippingDiscount(),
+      );
 
   Map<String, dynamic> toJson() => {
     'subtotal': subtotal,

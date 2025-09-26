@@ -11,12 +11,14 @@ class OrderRepoImpl implements OrderRepo {
   OrderRepoImpl(this._databaseService);
   @override
   Future<Either<Failure, void>> addOrder({
-    required OrderEntity orderEntity,
+    required OrderInputEntity orderEntity,
   }) async {
     try {
+      var orderModel = OrderModel.fromEntity(orderEntity);
       await _databaseService.saveData(
         path: 'orders',
-        data: OrderModel.fromEntity(orderEntity).toJson(),
+        documentId: orderModel.orderId,
+        data: orderModel.toJson(),
       );
       return right(null);
     } on Exception catch (e) {

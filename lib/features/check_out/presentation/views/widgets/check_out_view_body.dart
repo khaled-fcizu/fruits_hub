@@ -97,7 +97,7 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
   }
 
   void _handleShippingSectionValidation(BuildContext context) {
-    if (context.read<OrderEntity>().payWithCash != null) {
+    if (context.read<OrderInputEntity>().payWithCash != null) {
       pageController.nextPage(
         duration: const Duration(milliseconds: 150),
         curve: Curves.easeIn,
@@ -108,7 +108,7 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
   }
 
   void _handlePayPalPaymant(BuildContext context) {
-    var orderEntity = context.read<OrderEntity>();
+    var orderEntity = context.read<OrderInputEntity>();
     PaypalPaymentEntity paypalPaymentEntity = PaypalPaymentEntity.fromEntity(
       orderEntity,
     );
