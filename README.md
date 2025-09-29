@@ -5,4 +5,5 @@ The app provides a Home page to browse products, a Checkout process to complete 
 --------------------------------
 
 - here is a system files design
-- <img width="179" height="236" alt="DocDoc system design" src="https://github.com/user-attachments/assets/eb0601ae-010e-448d-8448-5116eb692b0e" /> 
+- <img width="265" height="371" alt="fruits_hub_file_structure" src="https://github.com/user-attachments/assets/c438dc96-8fd1-458c-a728-e15575b06ad6" />
+
