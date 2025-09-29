@@ -13,6 +13,7 @@ import 'package:fruit_hub/features/check_out/presentation/views/managers/cubit/a
 import 'package:fruit_hub/features/main/domain/entities/cart_entity.dart';
 import 'package:fruit_hub/features/main/presentation/managers/products_cubit/products_cubit.dart';
 import 'package:fruit_hub/features/main/presentation/views/main_view.dart';
+import 'package:fruit_hub/features/main/presentation/views/product_details_view.dart';
 import 'package:fruit_hub/features/onBoarding/ui/onboarding_view.dart';
 import 'package:fruit_hub/features/auth/presentation/views/sign_up_view.dart';
 import 'package:fruit_hub/features/spalsh/ui/splash_view.dart';
@@ -26,6 +27,8 @@ abstract class AppRouter {
         return MaterialPageRoute(builder: (_) => OnBoardingView());
       case Routes.mainView:
         return MaterialPageRoute(builder: (_) => MainView());
+      case Routes.productDetailsView:
+        return MaterialPageRoute(builder: (_) => ProductDetailsView());
       case Routes.checkOutView:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
