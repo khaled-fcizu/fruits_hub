@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/core/theming/app_text_styles.dart';
@@ -27,8 +28,7 @@ class HomeAppBar extends StatelessWidget {
                 style: AppTextStyles.font16GrayRegular,
               ),
               subtitle: Text(
-                // FirebaseAuth.instance.currentUser!.displayName!,
-                'احمد محمد',
+                FirebaseAuth.instance.currentUser!.displayName!,
                 style: AppTextStyles.font16BlackBold,
               ),
             ),

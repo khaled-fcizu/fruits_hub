@@ -7,7 +7,7 @@ import 'package:fruit_hub/features/main/presentation/managers/products_cubit/pro
 import 'package:fruit_hub/features/main/presentation/views/cart_view.dart';
 import 'package:fruit_hub/features/main/presentation/views/home_view.dart';
 import 'package:fruit_hub/features/main/presentation/views/products_view.dart';
-import 'package:fruit_hub/features/main/presentation/views/profile_view.dart';
+import 'package:fruit_hub/features/profile/presentation/views/profile_view.dart';
 
 class MainViewBody extends StatelessWidget {
   const MainViewBody({super.key, required this.currentIndex});

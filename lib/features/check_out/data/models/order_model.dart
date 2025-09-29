@@ -36,6 +36,7 @@ class OrderModel {
 
   toJson() => {
     'totalPrice': totalPrice,
+    'orderId': orderId,
     'uId': uId,
     'status': 'pending',
     'date': DateTime.now().toString(),
