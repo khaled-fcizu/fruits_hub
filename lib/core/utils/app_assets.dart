@@ -106,6 +106,10 @@ class Assets {
   /// assets/svgs/location.svg
   static const String assetsSvgsLocation = "assets/svgs/location.svg";
 
+  /// Assets for assetsSvgsLogOut
+  /// assets/svgs/log_out.svg
+  static const String assetsSvgsLogOut = "assets/svgs/log_out.svg";
+
   /// Assets for assetsSvgsMagicpen
   /// assets/svgs/magicpen.svg
   static const String assetsSvgsMagicpen = "assets/svgs/magicpen.svg";

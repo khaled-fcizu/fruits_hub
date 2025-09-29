@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:fruit_hub/core/utils/app_assets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/core/widgets/custom_divider.dart';
+import 'package:fruit_hub/features/profile/domain/entities/profile_item_entity.dart';
 import 'package:fruit_hub/features/profile/presentation/views/widgets/profile_item.dart';
 
 class ProfileListView extends StatelessWidget {
@@ -9,15 +9,18 @@ class ProfileListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      width: double.infinity,
+      height: 330.h,
       child: ListView.separated(
+        physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return ProfileItem(
-            widget: SvgPicture.asset(Assets.assetsSvgsArrowRight),
+            profileItemEntity: ProfileItemEntity.profileItems[index],
           );
         },
         separatorBuilder: (context, index) => CustomDivider(),
-        itemCount: 7,
+        itemCount: ProfileItemEntity.profileItems.length,
       ),
     );
   }
