@@ -7,11 +7,12 @@ class IncrementOrDecrementItem extends StatelessWidget {
     required this.backgroungColor,
     required this.iconColor,
     required this.icon,
-    this.onTap,
+    this.onTap, required this.iconSize,
   });
   final Color backgroungColor, iconColor;
   final IconData icon;
   final void Function()? onTap;
+  final   double iconSize;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -22,7 +23,7 @@ class IncrementOrDecrementItem extends StatelessWidget {
           color: backgroungColor,
           shape: BoxShape.circle,
         ),
-        child: Icon(icon, color: iconColor, size: 20.sp),
+        child: Icon(icon, color: iconColor, size: iconSize.sp),
       ),
     );
   }

@@ -1,4 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fruit_hub/core/helpers/spacing_helper.dart';
+import 'package:fruit_hub/core/utils/app_assets.dart';
+import 'package:fruit_hub/core/widgets/app_text_button.dart';
+import 'package:fruit_hub/features/main/presentation/views/widgets/product_details_infos.dart';
+import 'package:fruit_hub/features/main/presentation/views/widgets/product_details_view_arrow_back.dart';
+import 'package:fruit_hub/features/main/presentation/views/widgets/product_name_and_price_and_action_button.dart';
+import 'package:fruit_hub/features/main/presentation/views/widgets/product_rating_and_review_and_description.dart';
 
 class ProductDetailsView extends StatelessWidget {
   const ProductDetailsView({super.key});
@@ -6,7 +15,49 @@ class ProductDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('ProductDetailsView')),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              Stack(
+                children: [
+                  SizedBox(
+                    width: double.infinity,
+                    child: SvgPicture.asset(
+                      Assets.assetsSvgsProductDetailsGreyContainer,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                  ProductDetailsViewArrowBack(),
+                  Positioned(
+                    bottom: 91.h,
+                    right: 0,
+                    left: 0,
+                    child: Image.asset(
+                      Assets.assetsImagesWatermelon,
+                      width: 221.w,
+                      height: 167.h,
+                    ),
+                  ),
+                ],
+              ),
+              verticalSpace(24),
+              ProductNameAndPriceAndActionButton(),
+              verticalSpace(8),
+              ProductRatingAndReview(),
+              verticalSpace(16),
+              ProductDetailsInfos(),
+              verticalSpace(24),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                child: AppButton(onPressed: () {}, buttonText: 'أضف الي السلة'),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

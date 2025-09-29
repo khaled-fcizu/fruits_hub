@@ -10,9 +10,21 @@ class Assets {
   /// assets/images/avocado_test.png
   static const String assetsImagesAvocadoTest = "assets/images/avocado_test.png";
 
+  /// Assets for assetsImagesCalory
+  /// assets/images/calory.png
+  static const String assetsImagesCalory = "assets/images/calory.png";
+
+  /// Assets for assetsImagesExpirationCalender
+  /// assets/images/expiration_calender.png
+  static const String assetsImagesExpirationCalender = "assets/images/expiration_calender.png";
+
   /// Assets for assetsImagesFruitTest
   /// assets/images/fruit_test.png
   static const String assetsImagesFruitTest = "assets/images/fruit_test.png";
+
+  /// Assets for assetsImagesLotus
+  /// assets/images/lotus.png
+  static const String assetsImagesLotus = "assets/images/lotus.png";
 
   /// Assets for assetsImagesPineappleFruit
   /// assets/images/pineapple-fruit.png
@@ -21,6 +33,14 @@ class Assets {
   /// Assets for assetsImagesProfileImage
   /// assets/images/profile_image.png
   static const String assetsImagesProfileImage = "assets/images/profile_image.png";
+
+  /// Assets for assetsImagesReviewStar
+  /// assets/images/review_star.png
+  static const String assetsImagesReviewStar = "assets/images/review_star.png";
+
+  /// Assets for assetsImagesWatermelon
+  /// assets/images/watermelon.png
+  static const String assetsImagesWatermelon = "assets/images/watermelon.png";
 
   /// Assets for assetsSvgsAddToCartButton
   /// assets/svgs/add_to_cart_button.svg
@@ -154,9 +174,17 @@ class Assets {
   /// assets/svgs/plant.svg
   static const String assetsSvgsPlant = "assets/svgs/plant.svg";
 
+  /// Assets for assetsSvgsProductDetailsGreyContainer
+  /// assets/svgs/product_details_grey_container.svg
+  static const String assetsSvgsProductDetailsGreyContainer = "assets/svgs/product_details_grey_container.svg";
+
   /// Assets for assetsSvgsSearch
   /// assets/svgs/search.svg
   static const String assetsSvgsSearch = "assets/svgs/search.svg";
+
+  /// Assets for assetsSvgsStar
+  /// assets/svgs/star.svg
+  static const String assetsSvgsStar = "assets/svgs/star.svg";
 
   /// Assets for assetsSvgsTrash
   /// assets/svgs/trash.svg

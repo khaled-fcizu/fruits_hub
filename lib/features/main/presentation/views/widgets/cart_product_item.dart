@@ -87,6 +87,7 @@ class CartProductItem extends StatelessWidget {
                         Row(
                           children: [
                             IncrementOrDecrementItem(
+                              iconSize: 20,
                               onTap: () {
                                 cartItemEntity.incrementQuantity();
                                 context.read<CartItemCubit>().updateCartItem(
@@ -104,6 +105,7 @@ class CartProductItem extends StatelessWidget {
                             ),
                             horizontalSpace(16),
                             IncrementOrDecrementItem(
+                              iconSize: 20,
                               onTap: () {
                                 cartItemEntity.decrementQuantity();
                                 context.read<CartItemCubit>().updateCartItem(
