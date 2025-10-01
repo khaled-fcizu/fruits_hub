@@ -21,35 +21,38 @@ class ProfileView extends StatelessWidget {
       appBar: buildAppBar(context, title: 'حسابي', icon: SizedBox.shrink()),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            verticalSpace(16),
-            ProfilePhotoAndNameAndEmail(),
-            verticalSpace(16),
-            Text('عام', style: AppTextStyles.font13BlackSemiBold),
-            verticalSpace(16),
-            ProfileListView(),
-            CustomDivider(),
-            verticalSpace(22),
-            Text('المساعده', style: AppTextStyles.font13BlackSemiBold),
-            verticalSpace(16),
-            ProfileItem(
-              profileItemEntity: ProfileItemEntity(
-                prefixIcon: Assets.assetsSvgsInfoCircle,
-                title: 'سياسة الخصوصية',
-                suffixWidget: SvgPicture.asset(
-                  Assets.assetsSvgsArrowRight,
-                  width: 16.w,
-                  height: 16.h,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              verticalSpace(16),
+              ProfilePhotoAndNameAndEmail(),
+              verticalSpace(16),
+              Text('عام', style: AppTextStyles.font13BlackSemiBold),
+              verticalSpace(16),
+              ProfileListView(),
+              CustomDivider(),
+              verticalSpace(22),
+              Text('المساعده', style: AppTextStyles.font13BlackSemiBold),
+              verticalSpace(16),
+              ProfileItem(
+                profileItemEntity: ProfileItemEntity(
+                  prefixIcon: Assets.assetsSvgsInfoCircle,
+                  title: 'سياسة الخصوصية',
+                  suffixWidget: SvgPicture.asset(
+                    Assets.assetsSvgsArrowRight,
+                    width: 16.w,
+                    height: 16.h,
+                  ),
                 ),
               ),
-            ),
-            CustomDivider(),
-            verticalSpace(16),
-            LogOutContainer(),
-
-          ],
+              CustomDivider(),
+              verticalSpace(16),
+              LogOutContainer(),
+              verticalSpace(16),
+              verticalSpace(16),
+            ],
+          ),
         ),
       ),
     );

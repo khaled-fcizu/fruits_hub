@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruit_hub/core/helpers/extentions.dart';
 import 'package:fruit_hub/core/helpers/spacing_helper.dart';
+import 'package:fruit_hub/core/routing/routes.dart';
 import 'package:fruit_hub/core/theming/app_text_styles.dart';
 import 'package:fruit_hub/core/widgets/app_text_button.dart';
 import 'package:fruit_hub/core/widgets/custom_app_bar.dart';
@@ -34,9 +36,14 @@ class LoginView extends StatelessWidget {
                 verticalSpace(24),
                 LoginForm(),
                 verticalSpace(16),
-                Text(
-                  'نسيت كلمة المرور؟',
-                  style: AppTextStyles.font13LightGreenSimiBold,
+                GestureDetector(
+                  onTap: () {
+                    context.pushNamed(Routes.forgetPasswordView);
+                  },
+                  child: Text(
+                    'نسيت كلمة المرور؟',
+                    style: AppTextStyles.font13LightGreenSimiBold,
+                  ),
                 ),
                 verticalSpace(33),
                 AppButton(

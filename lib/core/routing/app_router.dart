@@ -4,8 +4,11 @@ import 'package:fruit_hub/core/di/dependancy_injection.dart';
 import 'package:fruit_hub/core/repos/order_repo/order_repo_impl.dart';
 import 'package:fruit_hub/core/repos/product_repo/product_repo_impl.dart';
 import 'package:fruit_hub/core/routing/routes.dart';
+import 'package:fruit_hub/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:fruit_hub/features/auth/presentation/managers/forget_password_cubit/forget_password_cubit.dart';
 import 'package:fruit_hub/features/auth/presentation/managers/login_cubit/login_cubit.dart';
 import 'package:fruit_hub/features/auth/presentation/managers/signup_cubit/signup_cubit.dart';
+import 'package:fruit_hub/features/auth/presentation/views/forget_password_view.dart';
 import 'package:fruit_hub/features/auth/presentation/views/login_view.dart';
 import 'package:fruit_hub/features/best_seller_fruits/presentation/views/best_seller_view.dart';
 import 'package:fruit_hub/features/check_out/presentation/views/chech_out_view.dart';
@@ -29,6 +32,13 @@ abstract class AppRouter {
         return MaterialPageRoute(builder: (_) => MainView());
       case Routes.productDetailsView:
         return MaterialPageRoute(builder: (_) => ProductDetailsView());
+      case Routes.forgetPasswordView:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => ForgetPasswordCubit(getIt<AuthRepoImpl>()),
+            child: ForgetPasswordView(),
+          ),
+        );
       case Routes.checkOutView:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(

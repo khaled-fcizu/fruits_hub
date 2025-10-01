@@ -11,6 +11,30 @@ class FirebaseAuthService {
     await FirebaseAuth.instance.currentUser?.delete();
   }
 
+  Future<void> changePassword({required String email}) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'invalid-email') {
+        throw CustomExeption('الإيميل غير صحيح');
+      } else if (e.code == 'user-not-found') {
+        throw CustomExeption('الإيميل غير موجود');
+      } else if (e.code == 'missing-android-pkg-name') {
+        throw CustomExeption('اسم الباكدج غير موجود لتطبيق Android');
+      } else if (e.code == 'missing-continue-uri') {
+        throw CustomExeption('لينك إعادة التوجيه مفقود');
+      } else if (e.code == 'missing-ios-bundle-id') {
+        throw CustomExeption('Bundle ID الخاص بتطبيق iOS غير موجود');
+      } else if (e.code == 'invalid-continue-uri') {
+        throw CustomExeption('لينك إعادة التوجيه غير صالح');
+      } else if (e.code == 'unauthorized-continue-uri') {
+        throw CustomExeption('لينك إعادة التوجيه غير مسموح بيه');
+      } else {
+        throw CustomExeption('حدث خطأ غير معروف: ${e.code}');
+      }
+    }
+  }
+
   Future<User> createUserWithEmailAndPassword({
     required String email,
     required String password,

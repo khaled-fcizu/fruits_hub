@@ -145,4 +145,16 @@ class AuthRepoImpl implements AuthRepo {
       value: jsonData,
     );
   }
+  
+  @override
+  Future<Either<Failure, Unit>> changePassword({required String email})async {
+    try{
+      await _firebaseAuthService.changePassword(email: email);
+      return Right(unit);
+    }on CustomExeption catch (e) {
+      return left(Failure(e.message));
+    } catch (e) {
+      return left(Failure('حدث خطأ ما يرجى المحاولة مرة أخرى لاحقًا'));
+    }
+  }
 }
