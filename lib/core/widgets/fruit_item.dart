@@ -24,7 +24,7 @@ class FruitItem extends StatelessWidget {
           left: 20,
           child: GestureDetector(
             onTap: () {
-              context.pushNamed(Routes.productDetailsView);
+              context.pushNamed(Routes.productDetailsView, arguments: productEntity);
             },
             child: CachedNetworkImage(
               imageUrl: productEntity.imageUrl!,

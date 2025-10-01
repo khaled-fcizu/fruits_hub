@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/di/dependancy_injection.dart';
+import 'package:fruit_hub/core/entities/product_entity.dart';
 import 'package:fruit_hub/core/repos/order_repo/order_repo_impl.dart';
 import 'package:fruit_hub/core/repos/product_repo/product_repo_impl.dart';
 import 'package:fruit_hub/core/routing/routes.dart';
@@ -31,7 +32,11 @@ abstract class AppRouter {
       case Routes.mainView:
         return MaterialPageRoute(builder: (_) => MainView());
       case Routes.productDetailsView:
-        return MaterialPageRoute(builder: (_) => ProductDetailsView());
+        return MaterialPageRoute(
+          builder: (_) => ProductDetailsView(
+            productEntity: settings.arguments as ProductEntity,
+          ),
+        );
       case Routes.forgetPasswordView:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(

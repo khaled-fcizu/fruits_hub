@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruit_hub/core/entities/product_entity.dart';
 import 'package:fruit_hub/core/helpers/spacing_helper.dart';
 import 'package:fruit_hub/core/utils/app_assets.dart';
 import 'package:fruit_hub/features/main/presentation/views/widgets/product_details_info_item.dart';
 
 class ProductDetailsInfos extends StatelessWidget {
-  const ProductDetailsInfos({super.key});
-
+  const ProductDetailsInfos({super.key, required this.productEntity});
+  final ProductEntity productEntity;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,7 +18,7 @@ class ProductDetailsInfos extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ProductDetailsInfoItem(
-                title: 'عام',
+                title: '${productEntity.expirationMonths.toString()} شهر',
                 subTitle: 'الصلاحيه',
                 image: Assets.assetsImagesExpirationCalender,
               ),
@@ -34,13 +35,13 @@ class ProductDetailsInfos extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ProductDetailsInfoItem(
-                title: '80 ك',
-                subTitle: '100 جرام',
+                title: '${productEntity.numberOfCalories} ك',
+                subTitle: '${productEntity.calorieSUnitAmount} جرام',
                 image: Assets.assetsImagesCalory,
               ),
 
               ProductDetailsInfoItem(
-                title: '4.8',
+                title: productEntity.reviews.length.toString(),
                 subTitle: 'Reviews',
                 image: Assets.assetsImagesReviewStar,
               ),

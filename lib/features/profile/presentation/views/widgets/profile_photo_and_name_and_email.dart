@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruit_hub/core/helpers/get_user_data.dart';
 import 'package:fruit_hub/core/helpers/spacing_helper.dart';
 import 'package:fruit_hub/core/theming/app_text_styles.dart';
 import 'package:fruit_hub/core/utils/app_assets.dart';
@@ -42,10 +43,7 @@ class ProfilePhotoAndNameAndEmail extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              FirebaseAuth.instance.currentUser!.displayName!,
-              style: AppTextStyles.font16BlackSimiBold,
-            ),
+            Text(getUserData().name, style: AppTextStyles.font16BlackSimiBold),
             verticalSpace(4),
             Text(
               FirebaseAuth.instance.currentUser!.email!,

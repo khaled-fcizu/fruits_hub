@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruit_hub/core/entities/product_entity.dart';
 import 'package:fruit_hub/core/helpers/spacing_helper.dart';
 import 'package:fruit_hub/core/theming/app_colors.dart';
 import 'package:fruit_hub/core/theming/app_text_styles.dart';
@@ -8,8 +9,9 @@ import 'package:fruit_hub/features/main/presentation/views/widgets/increament_or
 class ProductNameAndPriceAndActionButton extends StatelessWidget {
   const ProductNameAndPriceAndActionButton({
     super.key,
+    required this.productEntity,
   });
-
+  final ProductEntity productEntity;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,7 +23,7 @@ class ProductNameAndPriceAndActionButton extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'افوكادو',
+                productEntity.productName,
                 style: AppTextStyles.font16BlackBold.copyWith(
                   color: Colors.black,
                 ),
@@ -31,7 +33,7 @@ class ProductNameAndPriceAndActionButton extends StatelessWidget {
                 TextSpan(
                   children: [
                     TextSpan(
-                      text: '${'100'}جنية',
+                      text: '${productEntity.price} جنية',
                       style: AppTextStyles.font13LightGreenBold.copyWith(
                         color: Colors.orange,
                       ),

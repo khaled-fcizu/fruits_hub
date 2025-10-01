@@ -10,7 +10,6 @@ import 'package:fruit_hub/features/main/presentation/views/widgets/product_list_
 
 class ProductsView extends StatelessWidget {
   const ProductsView({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

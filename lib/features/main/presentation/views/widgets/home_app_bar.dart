@@ -1,6 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruit_hub/core/helpers/get_user_data.dart';
 import 'package:fruit_hub/core/theming/app_text_styles.dart';
 import 'package:fruit_hub/core/widgets/notification_ring.dart';
 
@@ -28,7 +28,7 @@ class HomeAppBar extends StatelessWidget {
                 style: AppTextStyles.font16GrayRegular,
               ),
               subtitle: Text(
-                FirebaseAuth.instance.currentUser!.displayName!,
+                getUserData().name,
                 style: AppTextStyles.font16BlackBold,
               ),
             ),
