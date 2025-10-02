@@ -30,7 +30,7 @@ class _ShippingSectionState extends State<ShippingSection>
           title: 'الدفع عند الاستلام',
           subtitle: 'التسليم من المكان',
           price:
-              '${context.read<OrderInputEntity>().cartEntity.calculateTotalPrice() + context.read<OrderInputEntity>().calculateShippingCost()} جنيه',
+              '${context.read<OrderInputEntity>().cartEntity.calculateTotalPrice() + 20} جنيه',
         ),
         verticalSpace(8),
         ShippingItem(
