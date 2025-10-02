@@ -38,7 +38,7 @@ class ProfileView extends StatelessWidget {
               ProfileItem(
                 profileItemEntity: ProfileItemEntity(
                   prefixIcon: Assets.assetsSvgsInfoCircle,
-                  title: 'سياسة الخصوصية',
+                  title: 'من نحن',
                   suffixWidget: SvgPicture.asset(
                     Assets.assetsSvgsArrowRight,
                     width: 16.w,
@@ -47,7 +47,7 @@ class ProfileView extends StatelessWidget {
                 ),
               ),
               CustomDivider(),
-              verticalSpace(16),
+              verticalSpace(63),
               LogOutContainer(),
               verticalSpace(16),
               verticalSpace(16),

@@ -11,7 +11,7 @@ class ProfileListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 330.h,
+      height: 244.h,
       child: ListView.separated(
         physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {

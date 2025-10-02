@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruit_hub/core/helpers/spacing_helper.dart';
 import 'package:fruit_hub/core/theming/app_text_styles.dart';
@@ -39,7 +40,20 @@ class ProfileItemEntity {
       prefixIcon: Assets.assetsSvgsNotificationRing,
       suffixWidget: Transform.scale(
         scale: 0.7,
-        child: Switch(value: true, onChanged: (value) {}, padding: EdgeInsets.zero,),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 2.5),
+          child: SizedBox(
+            height: 17.h,
+            width: 32.w,
+            child: Expanded(
+              child: Switch(
+                value: true,
+                onChanged: (value) {},
+                padding: EdgeInsetsGeometry.zero,
+              ),
+            ),
+          ),
+        ),
       ),
       title: 'الاشعارات',
     ),
@@ -58,7 +72,20 @@ class ProfileItemEntity {
       prefixIcon: Assets.assetsSvgsMagicpen,
       suffixWidget: Transform.scale(
         scale: 0.7,
-        child: Switch(value: true, onChanged: (value) {}, padding: EdgeInsetsGeometry.zero,),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 2.5),
+          child: SizedBox(
+            height: 17.h,
+            width: 32.w,
+            child: Expanded(
+              child: Switch(
+                value: true,
+                onChanged: (value) {},
+                padding: EdgeInsetsGeometry.zero,
+              ),
+            ),
+          ),
+        ),
       ),
       title: 'الوضع',
     ),
