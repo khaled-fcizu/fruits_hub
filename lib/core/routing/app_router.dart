@@ -20,6 +20,7 @@ import 'package:fruit_hub/features/main/presentation/views/main_view.dart';
 import 'package:fruit_hub/features/main/presentation/views/product_details_view.dart';
 import 'package:fruit_hub/features/onBoarding/ui/onboarding_view.dart';
 import 'package:fruit_hub/features/auth/presentation/views/sign_up_view.dart';
+import 'package:fruit_hub/features/review/presentation/views/review_view.dart';
 import 'package:fruit_hub/features/spalsh/ui/splash_view.dart';
 
 abstract class AppRouter {
@@ -31,6 +32,8 @@ abstract class AppRouter {
         return MaterialPageRoute(builder: (_) => OnBoardingView());
       case Routes.mainView:
         return MaterialPageRoute(builder: (_) => MainView());
+      case Routes.reviewView:
+        return MaterialPageRoute(builder: (_) => ReviewView());
       case Routes.productDetailsView:
         return MaterialPageRoute(
           builder: (_) => ProductDetailsView(

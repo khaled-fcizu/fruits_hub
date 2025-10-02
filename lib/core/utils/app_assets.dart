@@ -38,6 +38,10 @@ class Assets {
   /// assets/images/review_star.png
   static const String assetsImagesReviewStar = "assets/images/review_star.png";
 
+  /// Assets for assetsImagesUserImage
+  /// assets/images/user_image.png
+  static const String assetsImagesUserImage = "assets/images/user_image.png";
+
   /// Assets for assetsImagesWatermelon
   /// assets/images/watermelon.png
   static const String assetsImagesWatermelon = "assets/images/watermelon.png";
@@ -81,6 +85,14 @@ class Assets {
   /// Assets for assetsSvgsFilterSwap
   /// assets/svgs/filter_swap.svg
   static const String assetsSvgsFilterSwap = "assets/svgs/filter_swap.svg";
+
+  /// Assets for assetsSvgsFiveStar
+  /// assets/svgs/five_star.svg
+  static const String assetsSvgsFiveStar = "assets/svgs/five_star.svg";
+
+  /// Assets for assetsSvgsFourStar
+  /// assets/svgs/four_star.svg
+  static const String assetsSvgsFourStar = "assets/svgs/four_star.svg";
 
   /// Assets for assetsSvgsFruitHubMiddleLogo
   /// assets/svgs/fruit_hub_middle_logo.svg
@@ -154,6 +166,10 @@ class Assets {
   /// assets/svgs/onboarding_fruit_item2.svg
   static const String assetsSvgsOnboardingFruitItem2 = "assets/svgs/onboarding_fruit_item2.svg";
 
+  /// Assets for assetsSvgsOneStar
+  /// assets/svgs/one_star.svg
+  static const String assetsSvgsOneStar = "assets/svgs/one_star.svg";
+
   /// Assets for assetsSvgsOutlinedHome
   /// assets/svgs/outlined/home.svg
   static const String assetsSvgsOutlinedHome = "assets/svgs/outlined/home.svg";
@@ -186,6 +202,10 @@ class Assets {
   /// assets/svgs/star.svg
   static const String assetsSvgsStar = "assets/svgs/star.svg";
 
+  /// Assets for assetsSvgsThreeStar
+  /// assets/svgs/three_star.svg
+  static const String assetsSvgsThreeStar = "assets/svgs/three_star.svg";
+
   /// Assets for assetsSvgsTrash
   /// assets/svgs/trash.svg
   static const String assetsSvgsTrash = "assets/svgs/trash.svg";
@@ -193,6 +213,10 @@ class Assets {
   /// Assets for assetsSvgsTrue
   /// assets/svgs/true.svg
   static const String assetsSvgsTrue = "assets/svgs/true.svg";
+
+  /// Assets for assetsSvgsTwoStar
+  /// assets/svgs/two_star.svg
+  static const String assetsSvgsTwoStar = "assets/svgs/two_star.svg";
 
   /// Assets for assetsSvgsUser
   /// assets/svgs/user.svg
