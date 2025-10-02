@@ -9,8 +9,10 @@ class CartItemEntity extends Equatable {
   calculateTotalPrice() => productEntity.price * quantity;
   calculateTotalWeight() => productEntity.calorieSUnitAmount * quantity;
   incrementQuantity() => quantity++;
-  decrementQuantity() => quantity--;
-
+  decrementQuantity() {
+    if (quantity > 1) quantity--;
+  }
+  void addQuantity(int quantity) => this.quantity += quantity;
   @override
   List<Object?> get props => [productEntity];
 }

@@ -1,19 +1,20 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/entities/product_entity.dart';
 import 'package:fruit_hub/features/main/domain/entities/cart_entity.dart';
+import 'package:fruit_hub/features/main/domain/entities/cart_item_entity.dart';
 
 part 'cart_state.dart';
 
 class CartCubit extends Cubit<CartState> {
   CartCubit() : super(CartInitial());
   CartEntity cartEntity = CartEntity(cartItemsList: []);
-  addProduct(ProductEntity productEntity) {
+  addProduct(ProductEntity productEntity, {int quantity = 1}) {
     bool isProductExist = cartEntity.isExist(productEntity);
-    var cartItem = cartEntity.getCartItem(productEntity);
+    CartItemEntity cartItem = cartEntity.getCartItem(productEntity);
     if (isProductExist) {
-      cartItem.incrementQuantity();
+      cartItem.addQuantity(quantity);
     } else {
-      cartEntity.addItem(cartItem);
+      cartEntity.addItem(CartItemEntity(productEntity: productEntity,quantity: quantity ));
     }
     emit(CartProductAdded());
   }

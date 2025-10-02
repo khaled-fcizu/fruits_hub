@@ -1,11 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruit_hub/core/entities/product_entity.dart';
+import 'package:fruit_hub/core/helpers/extentions.dart';
 import 'package:fruit_hub/core/helpers/spacing_helper.dart';
 import 'package:fruit_hub/core/utils/app_assets.dart';
 import 'package:fruit_hub/core/widgets/app_text_button.dart';
+import 'package:fruit_hub/features/main/presentation/managers/cart_cubit/cart_cubit.dart';
+import 'package:fruit_hub/features/main/presentation/managers/cart_item_cubit/cart_item_cubit.dart';
 import 'package:fruit_hub/features/main/presentation/views/widgets/product_details_infos.dart';
 import 'package:fruit_hub/features/main/presentation/views/widgets/product_details_view_arrow_back.dart';
 import 'package:fruit_hub/features/main/presentation/views/widgets/product_name_and_price_and_action_button.dart';
@@ -48,20 +52,55 @@ class ProductDetailsView extends StatelessWidget {
                 ],
               ),
               verticalSpace(24),
-              ProductNameAndPriceAndActionButton(productEntity: productEntity,),
+              ProductNameAndPriceAndActionButton(
+                productEntity: productEntity,
+              ),
               verticalSpace(8),
-              ProductRatingAndReview(productEntity: productEntity,),
+              ProductRatingAndReview(productEntity: productEntity),
               verticalSpace(16),
-              ProductDetailsInfos(productEntity: productEntity,),
+              ProductDetailsInfos(productEntity: productEntity),
               verticalSpace(24),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
-                child: AppButton(onPressed: () {}, buttonText: 'أضف الي السلة'),
+                child: AppButton(
+                  onPressed: () {
+                    final currentQuantity =
+                        context.read<CartItemCubit>().state is CartItemUpdated
+                        ? (context.read<CartItemCubit>().state
+                                  as CartItemUpdated)
+                              .cartItemEntity
+                              .quantity
+                        : 1;
+                    context.read<CartCubit>().addProduct(productEntity, quantity: currentQuantity);
+                  },
+                  buttonText: 'أضف الي السلة',
+                ),
               ),
+              ProductDetailsBlocListener(),
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class ProductDetailsBlocListener extends StatelessWidget {
+  const ProductDetailsBlocListener({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocListener<CartCubit, CartState>(
+      listenWhen: (previous, current) =>
+          current is CartProductAdded || current is CartProductRemoved,
+      listener: (context, state) {
+        if (state is CartProductAdded) {
+          context.showSnackBar('product added to cart');
+        } else if (state is CartProductRemoved) {
+          context.showSnackBar('product removed from cart');
+        }
+      },
+      child: SizedBox.shrink(),
     );
   }
 }

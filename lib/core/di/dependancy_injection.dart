@@ -5,6 +5,8 @@ import 'package:fruit_hub/core/service/firestore_service.dart';
 import 'package:fruit_hub/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:fruit_hub/features/auth/presentation/managers/login_cubit/login_cubit.dart';
 import 'package:fruit_hub/features/auth/presentation/managers/signup_cubit/signup_cubit.dart';
+import 'package:fruit_hub/features/main/presentation/managers/cart_cubit/cart_cubit.dart';
+import 'package:fruit_hub/features/main/presentation/managers/cart_item_cubit/cart_item_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 final GetIt getIt = GetIt.instance;
@@ -23,6 +25,8 @@ void setupGetIt() {
   getIt.registerLazySingleton<ProductRepoImpl>(
     () => ProductRepoImpl(getIt<FirestoreService>()),
   );
+  getIt.registerLazySingleton(()=> CartItemCubit());
+  getIt.registerLazySingleton(() => CartCubit());
 
   //checkout
   getIt.registerLazySingleton<OrderRepoImpl>(
